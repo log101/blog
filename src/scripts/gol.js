@@ -1,7 +1,14 @@
 const boardElement = document.getElementById('board');
-const boardSize = 20;
+const boardSize = 10;
 const grid = [];
 let intervalId;
+
+const cells = ['30', '20', '51', '01', '62', '63', '03', '64', '54', '44', '34', '24', '14']
+
+const heavyWeightSpaceshipCell = (x, y) => {
+    const coor = `${x}${y}`
+    return cells.includes(coor)
+}
 
 function initializeBoard() {
     for (let y = 0; y < boardSize; y++) {
@@ -9,12 +16,15 @@ function initializeBoard() {
         for (let x = 0; x < boardSize; x++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
-            cell.addEventListener('click', () => {
-                cell.classList.toggle('alive');
-                grid[y][x] = grid[y][x] ? 0 : 1;
-            });
-            boardElement.appendChild(cell);
-            row.push(0);
+            if (heavyWeightSpaceshipCell(x, y)) {
+                cell.classList.add('alive');
+                boardElement.appendChild(cell);
+                row.push(1)
+            } else {
+                boardElement.appendChild(cell);
+                row.push(0);
+            }
+
         }
         grid.push(row);
     }
@@ -40,7 +50,7 @@ function computeNextGeneration() {
         cellElement.animate([
             { backgroundColor: change.state ? 'black' : 'white' }
         ], {
-            duration: 300,
+            duration: 50,
             fill: 'forwards'
         });
     });
@@ -51,11 +61,10 @@ function countAliveNeighbors(y, x) {
     for (let yOffset = -1; yOffset <= 1; yOffset++) {
         for (let xOffset = -1; xOffset <= 1; xOffset++) {
             if (yOffset === 0 && xOffset === 0) continue;
-            let newY = y + yOffset;
-            let newX = x + xOffset;
-            if (newY >= 0 && newY < boardSize && newX >= 0 && newX < boardSize) {
-                count += grid[newY][newX];
-            }
+            // Wrap around the edges
+            let newY = (y + yOffset + boardSize) % boardSize;
+            let newX = (x + xOffset + boardSize) % boardSize;
+            count += grid[newY][newX];
         }
     }
     return count;
@@ -64,7 +73,7 @@ function countAliveNeighbors(y, x) {
 function startGame() {
     console.log('starting')
     if (intervalId) clearInterval(intervalId);
-    intervalId = setInterval(computeNextGeneration, 100);
+    intervalId = setInterval(computeNextGeneration, 500);
 }
 
 const startButton = document.getElementById('startButton')
