@@ -1,20 +1,14 @@
-.board {
-    display: grid;
-    grid-template-columns: repeat(10, 5px);
-    row-gap: 1px;
-    column-gap: 1px;
-}
-.cell {
-    width: 5px;
-    height: 5px;
-    background-color: white;
-}
-.alive {
-    background-color: black;
+.container {
+    width: 710;
 }
 
-#title-and-gol {
+.main-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: var(--h1-desktop);
+    max-width: 250;
+}
+
+.header {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }

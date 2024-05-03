@@ -1,12 +1,26 @@
 ---
-import { Title } from '../components/header';
+import Layout from '../layouts/Layout.astro';
 import '../styles/gol.css';
 ---
 
-<div id="title-and-gol">
-	<Title />
-	<div id="board" class="board"></div>
-</div>
+<Layout title="log101">
+	<div class="container">
+		<div class="header">
+			<h1 class="main-title">log101</h1>
+			<div id="board" class="board"></div>
+		</div>
 
-<button id="startButton">Start Game</button>
-<script src="../scripts/gol.js"></script>
+		<button id="startButton">Start Game</button>
+		<button id="changeWidthButton">Change Width</button>
+	</div>
+</Layout>
+
+<script>
+	import ConwaySimulator from '../scripts/conway-simulator';
+
+	let gol = new ConwaySimulator(10, 46, 10, 250);
+	document.getElementById('board')?.append(gol.canvas);
+	gol.start();
+	const startButton = document.getElementById('startButton');
+	startButton!.onclick = () => gol.stop();
+</script>
