@@ -3,11 +3,16 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/gol.css";
+
+import { getCollection, getEntry } from 'astro:content';
+
+const allTeknikPosts = await getCollection('teknik')
 ---
 
 <Layout title="log101">
   <div class="container">
     <Header />
+	{allTeknikPosts.map(p => <p>{p.data.summary}</p>)}
     <Footer />
   </div>
 </Layout>
