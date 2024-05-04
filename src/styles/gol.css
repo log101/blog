@@ -63,3 +63,15 @@
   margin: 0;
   padding: 0;
 }
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  color: gray;
+}
+
+.footer a {
+  color: inherit;
+}
