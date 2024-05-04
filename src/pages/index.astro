@@ -1,26 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import '../styles/gol.css';
+import MainHeader from "../components/MainHeader.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/gol.css";
 ---
 
 <Layout title="log101">
-	<div class="container">
-		<div class="header">
-			<h1 class="main-title">log101</h1>
-			<div id="board" class="board"></div>
-		</div>
-
-		<button id="startButton">Start Game</button>
-		<button id="changeWidthButton">Change Width</button>
-	</div>
+  <div class="container">
+    <MainHeader />
+  </div>
 </Layout>
-
-<script>
-	import ConwaySimulator from '../scripts/conway-simulator';
-
-	let gol = new ConwaySimulator(10, 46, 10, 250);
-	document.getElementById('board')?.append(gol.canvas);
-	gol.start();
-	const startButton = document.getElementById('startButton');
-	startButton!.onclick = () => gol.stop();
-</script>

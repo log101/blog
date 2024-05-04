@@ -1,14 +1,65 @@
 .container {
-    width: 710;
-}
-
-.main-title {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: var(--h1-desktop);
-    max-width: 250;
+  width: 710px;
 }
 
 .header {
-    display: flex;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 6px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 12px;
+}
+
+.contact-links a {
+  color: grey;
+}
+
+.undecorated-anchor a {
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 12px;
+}
+
+.nav-links a {
+  font-size: var(--h6-desktop);
+  color: inherit;
+}
+
+.title-and-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title-and-gol {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 110px;
+}
+
+.main-title {
+  font-family: "Courier New", Courier, monospace;
+  font-size: var(--h1-desktop);
+  max-width: 250;
+  margin: 0;
+  padding: 0;
 }
