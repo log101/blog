@@ -1,9 +1,12 @@
 ---
-title: "Bir Komponentin Serüveni: Astro"
-summary: Yazdığınız komponentlere ne olur? Bu yazıda Astro komponentlerinin serüvenlerin bir göz atıyoruz!
+title: "Atatürk ve Demokratik Türkiye"
+summary: Halil İnalcık'ın kaleminden Türkiye Cumhuriyet'nin kuruluş hikayesi ve Atatürk inkılaplarının toplumdaki akisleri.
+category: Kitap İncelemesi
+date: 2024-03-15
 tags:
-  - astro
-  - javascript
+  - kitap
+  - atatürk
+  - inkılap tarihi
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut neque sollicitudin, pretium ipsum lacinia, mattis elit. Fusce in dolor suscipit, rutrum risus vehicula, feugiat ipsum. Sed sit amet enim cursus, efficitur eros eu, dapibus lectus. In nec risus eget nisl sodales bibendum nec sit amet nisl. Nulla a dolor finibus, commodo velit et, aliquam lacus. Nunc cursus ultrices tellus, ut volutpat mauris luctus vitae. Donec tristique sollicitudin est, sed iaculis odio eleifend non.

@@ -1,5 +1,9 @@
 .container {
   width: 710px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 24px 0px;
 }
 
 .header {
@@ -49,9 +53,14 @@
   gap: 8px;
 }
 
+.title-and-nav hr {
+  margin-bottom: 0;
+}
+
 .title-and-gol {
   display: flex;
   flex-direction: row;
+  gap: 16px;
   align-items: center;
   height: 110px;
 }
@@ -62,6 +71,7 @@
   max-width: 250;
   margin: 0;
   padding: 0;
+  padding-bottom: 8px;
 }
 
 .footer {

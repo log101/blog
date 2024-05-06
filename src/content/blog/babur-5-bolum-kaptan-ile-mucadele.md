@@ -1,6 +1,8 @@
 ---
 title: "5. Bölüm: Kaptan ile Mücadele"
 summary: "Babür'ün önünde yalnızca tek bir engel kalmıştır: Komutan."
+category: Öykü
+date: 2024-03-03
 tags:
   - babür
 ---

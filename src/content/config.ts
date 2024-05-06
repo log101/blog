@@ -1,15 +1,16 @@
-// 1. Import utilities from `astro:content`
 import { z, defineCollection } from "astro:content";
-// 2. Define your collection(s)
-const teknikCollection = defineCollection({
+
+const blogCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    summary: z.string(),
     tags: z.array(z.string()),
+    summary: z.string(),
+    date: z.date(),
+    category: z.enum(["Kitap İncelemesi", "Teknik Yazı", "Öykü"]),
   }),
 });
 
 export const collections = {
-  teknik: teknikCollection,
+  blog: blogCollection,
 };
