@@ -1,5 +1,12 @@
 import { z, defineCollection } from "astro:content";
 
+export const CATEGORIES = {
+  fikir: "Fikir",
+  teknik: "Teknik",
+  edebiyat: "Babür'ün Serüvenleri",
+  ansiklopedi: "Ansiklopedi",
+};
+
 const blogCollection = defineCollection({
   type: "content",
   schema: z.object({

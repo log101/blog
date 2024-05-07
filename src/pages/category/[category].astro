@@ -1,0 +1,15 @@
+---
+import { CATEGORIES } from "../../content/config";
+
+export function getStaticPaths() {
+  return Object.keys(CATEGORIES).map((k) => {
+    return {
+      params: { category: k },
+    };
+  });
+}
+
+const { category } = Astro.params;
+---
+
+<div>Catakulli, {category}!</div>

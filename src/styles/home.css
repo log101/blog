@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   color: #2f4f4f;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 .post-title {
@@ -33,4 +33,9 @@
   margin: 0;
   padding: 0;
   color: gray;
+}
+
+.home-all-posts {
+  padding-top: 16px;
+  color: inherit;
 }

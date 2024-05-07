@@ -6,6 +6,7 @@ import "../styles/header.css";
 import "../styles/home.css";
 
 import { getCollection } from "astro:content";
+import Post from "../components/Post.astro";
 
 const allTeknikPosts = await getCollection("blog");
 ---
@@ -17,22 +18,10 @@ const allTeknikPosts = await getCollection("blog");
       {
         allTeknikPosts
           .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
-          .map((p) => (
-            <div class="post">
-              <p class="post-category">{p.data.category}</p>
-              <h4 class="post-title">{p.data.title}</h4>
-              <p class="post-date">
-                {p.data.date.toLocaleDateString("tr-TR", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}
-              </p>
-              <p class="post-summary">{p.data.summary}</p>
-            </div>
-          ))
+          .map((p) => <Post data={p.data} />)
       }
     </div>
+    <a class="home-all-posts" href="#">Tüm Yayınlar</a>
     <Footer />
   </div>
 </Layout>
