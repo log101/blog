@@ -1,0 +1,38 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/header.css";
+import "../styles/home.css";
+
+import { getCollection } from "astro:content";
+
+const allTeknikPosts = await getCollection("blog");
+---
+
+<Layout title="log101">
+  <div class="container">
+    <Header />
+    <div class="posts">
+      {
+        allTeknikPosts
+          .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
+          .map((p) => (
+            <div class="post">
+              <p class="post-category">{p.data.category}</p>
+              <h4 class="post-title">{p.data.title}</h4>
+              <p class="post-date">
+                {p.data.date.toLocaleDateString("tr-TR", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </p>
+              <p class="post-summary">{p.data.summary}</p>
+            </div>
+          ))
+      }
+    </div>
+    <Footer />
+  </div>
+</Layout>

@@ -1,0 +1,36 @@
+---
+
+---
+
+<div class="header">
+  <ul class="contact-links undecorated-anchor">
+    <li><a href="#">Eposta</a></li>
+    <li><a href="#">Github</a></li>
+    <li><a href="#">LinkedIn</a></li>
+    <li><a href="#">CV</a></li>
+  </ul>
+
+  <div class="title-and-nav">
+    <div class="title-and-gol">
+      <h1 class="main-title">log101</h1>
+      <div id="board" class="board"></div>
+    </div>
+    <div>
+      <ul class="nav-links undecorated-anchor">
+        <li><a href="#">Teknik</a></li>
+        <li><a href="#">Fikir</a></li>
+        <li><a href="#">Babür'ün Serüvenleri</a></li>
+        <li><a href="#">Ansiklopedi</a></li>
+      </ul>
+      <hr />
+    </div>
+  </div>
+</div>
+
+<script>
+  import ConwaySimulator from "../scripts/conway-simulator";
+
+  let gol = new ConwaySimulator(10, 46, 10, 250);
+  document.getElementById("board")?.append(gol.canvas);
+  gol.start();
+</script>
