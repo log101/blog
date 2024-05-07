@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import "../styles/header.css";
 import "../styles/home.css";
 
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 const allTeknikPosts = await getCollection("blog");
 ---
