@@ -33,7 +33,7 @@ import { CATEGORIES } from "../content/config";
 <script>
   import ConwaySimulator from "../scripts/conway-simulator";
 
-  let gol = new ConwaySimulator(10, 46, 10, 250);
+  let gol = new ConwaySimulator(8, 46, 10, 250);
   document.getElementById("board")?.append(gol.canvas);
   gol.start();
 </script>
