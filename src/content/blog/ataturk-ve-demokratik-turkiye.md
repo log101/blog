@@ -1,7 +1,8 @@
 ---
 title: "Atatürk ve Demokratik Türkiye"
 summary: Halil İnalcık'ın kaleminden Türkiye Cumhuriyet'nin kuruluş hikayesi ve Atatürk inkılaplarının toplumdaki akisleri.
-category: Kitap İncelemesi
+category: fikir
+subcategory: Kitap İncelemesi
 date: 2024-03-15
 tags:
   - kitap

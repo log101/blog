@@ -1,11 +1,6 @@
 import { z, defineCollection } from "astro:content";
 
-export const CATEGORIES = {
-  fikir: "Fikir",
-  teknik: "Teknik",
-  edebiyat: "Babür'ün Serüvenleri",
-  ansiklopedi: "Ansiklopedi",
-};
+export const CATEGORIES = ["fikir", "teknik", "edebiyat", "ansiklopedi"];
 
 const blogCollection = defineCollection({
   type: "content",
@@ -14,7 +9,8 @@ const blogCollection = defineCollection({
     tags: z.array(z.string()),
     summary: z.string(),
     date: z.date(),
-    category: z.enum(["Kitap İncelemesi", "Teknik Yazı", "Öykü"]),
+    category: z.enum(["fikir", "teknik", "edebiyat", "ansiklopedi"]),
+    subcategory: z.string(),
   }),
 });
 

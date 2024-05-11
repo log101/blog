@@ -1,15 +1,41 @@
 ---
+import { getCollection } from "astro:content";
 import { CATEGORIES } from "../../content/config";
 
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Layout from "@/layouts/Layout.astro";
+import Post from "@/components/Post.astro";
+
+import "@/styles/home.css";
+
 export function getStaticPaths() {
-  return Object.keys(CATEGORIES).map((k) => {
+  return CATEGORIES.map((c) => {
     return {
-      params: { category: k },
+      params: { category: c },
     };
   });
 }
 
 const { category } = Astro.params;
+
+const allTeknikPosts = await getCollection(
+  "blog",
+  (post) => post.data.category === category
+);
 ---
 
-<div>Catakulli, {category}!</div>
+<Layout title="log101">
+  <div class="container">
+    <Header />
+    <div class="posts">
+      {
+        allTeknikPosts
+          .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
+          .map((p) => <Post post={p} componentType="long" />)
+      }
+    </div>
+    <a class="home-all-posts" href="#">Tüm Yayınlar</a>
+    <Footer />
+  </div>
+</Layout>

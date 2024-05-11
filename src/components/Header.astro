@@ -1,5 +1,5 @@
 ---
-import { CATEGORIES } from "../content/config";
+
 ---
 
 <style>
@@ -88,11 +88,22 @@ import { CATEGORIES } from "../content/config";
     <div>
       <ul class="nav-links undecorated-anchor">
         {
-          Object.entries(CATEGORIES).map(([k, v]) => (
-            <li>
-              <a href={`/category/${k}`}>{v}</a>
-            </li>
-          ))
+          (
+            <>
+              <li>
+                <a href={`/category/fikir`}>Fikir</a>
+              </li>
+              <li>
+                <a href={`/category/teknik`}>Teknik</a>
+              </li>
+              <li>
+                <a href={`/category/edebiyat`}>Babür'ün Serüvenleri</a>
+              </li>
+              <li>
+                <a href={`/category/ansiklopedi`}>Ansiklopedi</a>
+              </li>
+            </>
+          )
         }
       </ul>
       <hr />

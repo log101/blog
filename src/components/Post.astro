@@ -1,8 +1,36 @@
 ---
-const { data } = Astro.props;
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  componentType: "short" | "long" | "full";
+}
+
+const { post, componentType } = Astro.props;
+
+let showTags, shortSummary, longSummary, fullText;
+
+switch (componentType) {
+  case "full":
+    fullText = true;
+    break;
+  case "long":
+    longSummary = true;
+    showTags = true;
+    break;
+  case "short":
+    shortSummary = true;
+    break;
+  default:
+    break;
+}
 ---
 
 <style>
+  p {
+    margin: 0;
+    padding: 0;
+  }
   .post {
     display: flex;
     flex-direction: column;
@@ -10,8 +38,6 @@ const { data } = Astro.props;
   }
 
   .post-category {
-    margin: 0;
-    padding: 0;
     color: #2f4f4f;
     letter-spacing: 0.03em;
   }
@@ -23,29 +49,51 @@ const { data } = Astro.props;
     padding: 0;
   }
 
-  .post-summary {
+  .post-date {
+    color: gray;
+    font-size: var(--small-desktop);
+  }
+
+  .tags-and-date {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
     margin: 0;
     padding: 0;
   }
-
-  .post-date {
-    margin: 0;
-    padding: 0;
-    color: gray;
+  .post-tags li {
+    list-style-type: none;
+    color: #6d6d6d;
+    font-size: var(--small-desktop);
   }
 </style>
 
 <div class="post">
-  <p class="post-category">{data.category}</p>
-  <h4 class="post-title">{data.title}</h4>
-  <p class="post-date">
-    {
-      data.date.toLocaleDateString("tr-TR", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      })
-    }
-  </p>
-  <p class="post-summary">{data.summary}</p>
+  <p class="post-category">{post.data.subcategory}</p>
+  <h4 class="post-title">{post.data.title}</h4>
+  <div class="tags-and-date">
+    <ul class="post-tags">
+      {post.data.tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+
+    <p class="post-date">
+      {
+        post.data.date.toLocaleDateString("tr-TR", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })
+      }
+    </p>
+  </div>
+
+  {shortSummary && <p class="post-summary">{post.data.summary}</p>}
+  {longSummary && <p class="post-long-summary">{post.body.slice(0, 500)}</p>}
+  {fullText && <p class="post-text">{post.body}</p>}
 </div>

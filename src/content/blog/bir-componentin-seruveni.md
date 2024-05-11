@@ -1,7 +1,8 @@
 ---
 title: "Bir Komponentin Serüveni: Astro"
 summary: Yazdığınız komponentlere ne olur? Bu yazıda Astro komponentlerinin serüvenlerine göz atıyoruz!
-category: Teknik Yazı
+category: teknik
+subcategory: Teknik Yazı
 date: 2024-04-01
 tags:
   - astro

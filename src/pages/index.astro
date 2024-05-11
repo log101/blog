@@ -1,11 +1,11 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Layout from "../layouts/Layout.astro";
-import "../styles/home.css";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Layout from "@/layouts/Layout.astro";
+import "@/styles/home.css";
 
 import { getCollection } from "astro:content";
-import Post from "../components/Post.astro";
+import Post from "@/components/Post.astro";
 
 const allTeknikPosts = await getCollection("blog");
 ---
