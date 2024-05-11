@@ -2,6 +2,39 @@
 const { data } = Astro.props;
 ---
 
+<style>
+  .post {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .post-category {
+    margin: 0;
+    padding: 0;
+    color: #2f4f4f;
+    letter-spacing: 0.03em;
+  }
+
+  .post-title {
+    font-size: var(--h4-desktop);
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  .post-summary {
+    margin: 0;
+    padding: 0;
+  }
+
+  .post-date {
+    margin: 0;
+    padding: 0;
+    color: gray;
+  }
+</style>
+
 <div class="post">
   <p class="post-category">{data.category}</p>
   <h4 class="post-title">{data.title}</h4>
