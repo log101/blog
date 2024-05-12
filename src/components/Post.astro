@@ -33,6 +33,8 @@ const postDateFormatted = post.data.date.toLocaleDateString("tr-TR", {
   year: "numeric",
 });
 
+const postLink = `/category/${post.data.category}/${post.slug}`;
+
 const { Content } = await post.render();
 ---
 
@@ -113,12 +115,19 @@ const { Content } = await post.render();
     color: #424242;
     font-size: var(--small-desktop);
   }
+
+  .post-title-anchor {
+    text-decoration: none;
+    color: inherit;
+  }
 </style>
 
 <div class="post">
   <div class="post-header">
     <p class="post-category">{post.data.subcategory}</p>
-    <h4 class="post-title">{post.data.title}</h4>
+    <a class="post-title-anchor" href={postLink}
+      ><h4 class="post-title">{post.data.title}</h4></a
+    >
     <div class="meta">
       {
         showTags && (
@@ -163,7 +172,9 @@ const { Content } = await post.render();
   {
     longSummary && (
       <>
-        <p class="post-long-summary">{post.body.slice(0, 500)}</p>
+        <p class="post-long-summary">
+          {post.body.slice(0, 500).replace(/(<([^>]+)>)/gi, "")}
+        </p>
         {post.body.length > 500 && (
           <a
             class="read-more"
