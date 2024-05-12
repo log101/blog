@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import "@/styles/home.css";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { category: entry.data.category, slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+
+<Layout title="log101">
+  <di class="container">
+    <Header />
+    {entry.body}
+    <a class="home-all-posts" href="#">Tüm Yayınlar</a>
+    <Footer />
+  </di>
+</Layout>

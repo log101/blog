@@ -77,10 +77,17 @@ switch (componentType) {
 <div class="post">
   <p class="post-category">{post.data.subcategory}</p>
   <h4 class="post-title">{post.data.title}</h4>
+  {shortSummary && <p class="post-summary">{post.data.summary}</p>}
   <div class="tags-and-date">
-    <ul class="post-tags">
-      {post.data.tags.map((tag) => <li>{tag}</li>)}
-    </ul>
+    {
+      showTags && (
+        <ul class="post-tags">
+          {post.data.tags.map((tag) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      )
+    }
 
     <p class="post-date">
       {
@@ -93,7 +100,6 @@ switch (componentType) {
     </p>
   </div>
 
-  {shortSummary && <p class="post-summary">{post.data.summary}</p>}
   {longSummary && <p class="post-long-summary">{post.body.slice(0, 500)}</p>}
   {fullText && <p class="post-text">{post.body}</p>}
 </div>

@@ -1,5 +1,7 @@
 ---
+console.log(import.meta.env.DEV);
 
+const host = import.meta.env.HOST_NAME;
 ---
 
 <style>
@@ -62,6 +64,11 @@
     height: 110px;
   }
 
+  .title-and-gol a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .main-title {
     font-family: "Courier New", Courier, monospace;
     font-size: var(--h1-desktop);
@@ -82,7 +89,7 @@
 
   <div class="title-and-nav">
     <div class="title-and-gol">
-      <h1 class="main-title">log101</h1>
+      <a href={host}><h1 class="main-title">log101</h1></a>
       <div id="board" class="board"></div>
     </div>
     <div>
