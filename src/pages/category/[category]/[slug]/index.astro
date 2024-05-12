@@ -5,6 +5,7 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
 import "@/styles/home.css";
+import Post from "@/components/Post.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -20,8 +21,7 @@ const { entry } = Astro.props;
 <Layout title="log101">
   <di class="container">
     <Header />
-    {entry.body}
-    <a class="home-all-posts" href="#">Tüm Yayınlar</a>
+    <Post post={entry} componentType="full" />
     <Footer />
   </di>
 </Layout>

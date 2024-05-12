@@ -8,10 +8,12 @@ interface Props {
 
 const { post, componentType } = Astro.props;
 
-let showTags, shortSummary, longSummary, fullText;
+let showTags, shortSummary, longSummary, fullText, postFooter;
 
 switch (componentType) {
   case "full":
+    postFooter = true;
+    showTags = true;
     fullText = true;
     break;
   case "long":
@@ -30,6 +32,8 @@ const postDateFormatted = post.data.date.toLocaleDateString("tr-TR", {
   month: "long",
   year: "numeric",
 });
+
+const { Content } = await post.render();
 ---
 
 <style>
@@ -46,6 +50,7 @@ const postDateFormatted = post.data.date.toLocaleDateString("tr-TR", {
   .post-header {
     display: flex;
     flex-direction: column;
+    gap: 4px;
   }
 
   .post-category {
@@ -103,13 +108,17 @@ const postDateFormatted = post.data.date.toLocaleDateString("tr-TR", {
     color: inherit;
     font-size: var(--small-desktop);
   }
+
+  .post-footer {
+    color: #424242;
+    font-size: var(--small-desktop);
+  }
 </style>
 
 <div class="post">
   <div class="post-header">
     <p class="post-category">{post.data.subcategory}</p>
     <h4 class="post-title">{post.data.title}</h4>
-    {shortSummary && <p class="post-summary">{post.data.summary}</p>}
     <div class="meta">
       {
         showTags && (
@@ -149,18 +158,29 @@ const postDateFormatted = post.data.date.toLocaleDateString("tr-TR", {
       </div>
     </div>
   </div>
+  {shortSummary && <p class="post-summary">{post.data.summary}</p>}
 
   {
     longSummary && (
       <>
         <p class="post-long-summary">{post.body.slice(0, 500)}</p>
         {post.body.length > 500 && (
-          <a class="read-more" href={`/${post.slug}`}>
+          <a
+            class="read-more"
+            href={`/category/${post.data.category}/${post.slug}`}
+          >
             Devamını Oku
           </a>
         )}
       </>
     )
   }
-  {fullText && <p class="post-text">{post.body}</p>}
+  {
+    fullText && (
+      <div class="post-body">
+        <Content />
+      </div>
+    )
+  }
+  {postFooter && <p class="post-footer">{postDateFormatted}</p>}
 </div>

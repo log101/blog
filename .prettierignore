@@ -2,3 +2,5 @@
 build
 coverage
 public
+
+src/content/blog/*
