@@ -17,7 +17,7 @@ const allTeknikPosts = await getCollection("blog");
       {
         allTeknikPosts
           .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
-          .map((p) => <Post data={p.data} />)
+          .map((p) => <Post post={p} componentType="short" />)
       }
     </div>
     <a class="home-all-posts" href="#">Tüm Yayınlar</a>
