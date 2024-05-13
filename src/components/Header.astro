@@ -1,7 +1,5 @@
 ---
-console.log(import.meta.env.DEV);
-
-const host = import.meta.env.HOST_NAME;
+const base = import.meta.env.BASE_URL;
 ---
 
 <style>
@@ -89,7 +87,7 @@ const host = import.meta.env.HOST_NAME;
 
   <div class="title-and-nav">
     <div class="title-and-gol">
-      <a href={host}><h1 class="main-title">log101</h1></a>
+      <a href={base}><h1 class="main-title">log101</h1></a>
       <div id="board" class="board"></div>
     </div>
     <div>
@@ -98,16 +96,16 @@ const host = import.meta.env.HOST_NAME;
           (
             <>
               <li>
-                <a href={`/category/fikir`}>Fikir</a>
+                <a href={`${base}/category/fikir`}>Fikir</a>
               </li>
               <li>
-                <a href={`/category/teknik`}>Teknik</a>
+                <a href={`${base}/category/teknik`}>Teknik</a>
               </li>
               <li>
-                <a href={`/category/edebiyat`}>Babür'ün Serüvenleri</a>
+                <a href={`${base}/category/edebiyat`}>Babür'ün Serüvenleri</a>
               </li>
               <li>
-                <a href={`/category/ansiklopedi`}>Ansiklopedi</a>
+                <a href={`${base}/category/ansiklopedi`}>Ansiklopedi</a>
               </li>
             </>
           )
