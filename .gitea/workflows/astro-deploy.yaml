@@ -44,6 +44,8 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build
         working-directory: ${{ env.BUILD_PATH }}
+      - name: Transfer dist folder
+        run: scp -r ./dist log101@log101.dev:/home/log101/
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.3
         with:
