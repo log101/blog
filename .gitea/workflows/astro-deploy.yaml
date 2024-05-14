@@ -44,15 +44,21 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build
         working-directory: ${{ env.BUILD_PATH }}
-      - name: Transfer dist folder
-        run: scp -r ./dist log101@log101.dev:/home/log101/
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            whoami
-            ls -l ${{ env.BUILD_PATH }}/dist
+      - name: Deploy to my server
+        uses: up9cloud/action-rsync@master
+        env:
+          HOST: ${{ secrets.HOST }}
+          KEY: ${{ secrets.KEY }}
+          TARGET: ${{ secrets.DESTINATION_FOLDER }}
+
+          VERBOSE: true
+          USER: ${{ secrets.USERNAME }}
+          ARGS: -az --exclude=/.git/
+          SSH_ARGS: '-p 22 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+          SOURCE: ./dist/
+
+          PRE_SCRIPT: |
+            echo start at:
+            date -u
+          POST_SCRIPT: "echo done at: && date -u"
+
