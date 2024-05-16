@@ -10,8 +10,6 @@ tags:
   - inkılap tarihi
 ---
 
-# Atatürk ve Demokratik Türkiye
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut neque sollicitudin, pretium ipsum lacinia, mattis elit. Fusce in dolor suscipit, rutrum risus vehicula, feugiat ipsum. Sed sit amet enim cursus, efficitur eros eu, dapibus lectus. In nec risus eget nisl sodales bibendum nec sit amet nisl. Nulla a dolor finibus, commodo velit et, aliquam lacus. Nunc cursus ultrices tellus, ut volutpat mauris luctus vitae. Donec tristique sollicitudin est, sed iaculis odio eleifend non.
 </br></br>
 Fusce posuere non elit in vehicula. Proin facilisis dignissim bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed posuere mi lectus, at eleifend mi tristique eu. Suspendisse potenti. Nam et eros velit.

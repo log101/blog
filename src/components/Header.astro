@@ -7,13 +7,17 @@ const base = import.meta.env.BASE_URL;
     @apply text-xl text-inherit;
   }
 
-  .contact-links a {
+  .contact-links li a {
     @apply text-gray-500 no-underline;
+  }
+
+  .nav-links a {
+    @apply no-underline;
   }
 </style>
 
 <div class="flex flex-col justify-start gap-2">
-  <ul class="flex flex-row items-center list-none p-0 m-0 gap-3 contact-links">
+  <ul class="flex flex-row items-center list-none p-0 gap-3 contact-links">
     <li><a href="#">Eposta</a></li>
     <li><a href="#">Github</a></li>
     <li><a href="#">LinkedIn</a></li>
@@ -23,42 +27,26 @@ const base = import.meta.env.BASE_URL;
   <div class="flex flex-col gap-2">
     <div class="flex flex-row gap-4 items-center h-[110px]">
       <a href={base} class="no-underline text-inherit"
-        ><h1 class="font-mono text-[3.815rem] max-w-[250px] m-0 p-0 pb-2">
-          log101
-        </h1></a
+        ><h1 class="font-mono text-[3.815rem] pb-2">log101</h1></a
       >
       <div id="board" class="board"></div>
     </div>
     <div>
       <ul
-        class="flex flex-row items-center justify-between list-none p-0 m-0 gap-3 nav-links"
+        class="flex flex-row items-center justify-between list-none p-0 gap-3 nav-links"
       >
-        {
-          (
-            <>
-              <li>
-                <a href={`${base}/category/fikir`} class="no-underline">
-                  Fikir
-                </a>
-              </li>
-              <li>
-                <a href={`${base}/category/teknik`} class="no-underline">
-                  Teknik
-                </a>
-              </li>
-              <li>
-                <a href={`${base}/category/edebiyat`} class="no-underline">
-                  Babür'ün Serüvenleri
-                </a>
-              </li>
-              <li>
-                <a href={`${base}/category/ansiklopedi`} class="no-underline">
-                  Ansiklopedi
-                </a>
-              </li>
-            </>
-          )
-        }
+        <li>
+          <a href={`${base}/category/fikir`}>Fikir</a>
+        </li>
+        <li>
+          <a href={`${base}/category/teknik`}>Teknik</a>
+        </li>
+        <li>
+          <a href={`${base}/category/edebiyat`}>Babür'ün Serüvenleri</a>
+        </li>
+        <li>
+          <a href={`${base}/category/ansiklopedi`}>Ansiklopedi</a>
+        </li>
       </ul>
       <hr class="mb-0" />
     </div>

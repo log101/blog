@@ -4,7 +4,6 @@ import { getCollection } from "astro:content";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
-import "@/styles/home.css";
 import Post from "@/components/Post.astro";
 
 export async function getStaticPaths() {
@@ -19,9 +18,7 @@ const { entry } = Astro.props;
 ---
 
 <Layout title="log101">
-  <div class="container">
-    <Header />
-    <Post post={entry} componentType="full" />
-    <Footer />
-  </div>
+  <Header />
+  <Post post={entry} componentType="full" />
+  <Footer />
 </Layout>

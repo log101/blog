@@ -18,6 +18,8 @@ import "../styles/main.css";
     <title>{title}</title>
   </head>
   <body class="flex justify-center font-sans">
-    <slot />
+    <div class="max-w-[750px] flex flex-col gap-8 my-6">
+      <slot />
+    </div>
   </body>
 </html>

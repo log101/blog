@@ -10,16 +10,14 @@ const allTeknikPosts = await getCollection("blog");
 ---
 
 <Layout title="log101">
-  <div class="w-[750px] flex flex-col gap-8 my-6">
-    <Header />
-    <div class="flex flex-col gap-10">
-      {
-        allTeknikPosts
-          .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
-          .map((p) => <Post post={p} componentType="short" />)
-      }
-    </div>
-    <a class="text-inherit" href="#">Tüm Yayınlar</a>
-    <Footer />
+  <Header />
+  <div class="posts">
+    {
+      allTeknikPosts
+        .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
+        .map((p) => <Post post={p} componentType="short" />)
+    }
   </div>
+  <a class="text-inherit" href="#">Tüm Yayınlar</a>
+  <Footer />
 </Layout>

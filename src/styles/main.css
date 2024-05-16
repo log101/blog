@@ -17,3 +17,9 @@
 * {
   margin: 0;
 }
+
+@layer components {
+  .posts {
+    @apply flex flex-col gap-10;
+  }
+}

@@ -41,64 +41,6 @@ const { Content } = await post.render();
 ---
 
 <style>
-  p {
-    margin: 0;
-    padding: 0;
-  }
-  .post {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .post-header {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .post-category {
-    color: #2f4f4f;
-    letter-spacing: 0.03em;
-  }
-
-  .post-title {
-    font-size: var(--h4-desktop);
-    font-weight: normal;
-    margin: 0;
-    padding: 0;
-  }
-
-  .post-date {
-    color: gray;
-    font-size: var(--small-desktop);
-  }
-
-  .meta {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-  }
-
-  .meta-container {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .meta-text {
-    font-size: var(--small-desktop);
-    color: #6d6d6d;
-    padding: 0;
-  }
-
-  .meta-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-    display: flex;
-  }
-
   .meta-list li {
     padding-top: 0.1rem;
     &:not(:last-child) {
@@ -107,33 +49,18 @@ const { Content } = await post.render();
       }
     }
   }
-
-  .read-more {
-    color: inherit;
-    font-size: var(--small-desktop);
-  }
-
-  .post-footer {
-    color: #424242;
-    font-size: var(--small-desktop);
-  }
-
-  .post-title-anchor {
-    text-decoration: none;
-    color: inherit;
-  }
 </style>
 
-<div class="post">
-  <div class="post-header">
-    <p class="post-category">{post.data.subcategory}</p>
-    <a class="post-title-anchor" href={postLink}
-      ><h4 class="post-title">{post.data.title}</h4></a
+<div class="flex flex-col gap-3">
+  <div class="flex flex-col">
+    <p class="tracking-wide text-slate-700">{post.data.subcategory}</p>
+    <a class="no-underline text-inherit" href={postLink}
+      ><h4 class="text-3xl font-normal">{post.data.title}</h4></a
     >
-    <div class="meta">
+    <div class="flex flex-row gap-2">
       {
         showTags && (
-          <div class="meta-container">
+          <div class="flex items-center gap-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -143,16 +70,16 @@ const { Content } = await post.render();
             >
               <path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z" />
             </svg>
-            <ul class="meta-list">
+            <ul class="list-none flex pl-0 meta-list">
               {post.data.tags.map((tag) => (
-                <li class="meta-text">{tag}</li>
+                <li class="text-sm text-gray-500">{tag}</li>
               ))}
             </ul>
           </div>
         )
       }
 
-      <div class="meta-container">
+      <div class="flex items-center gap-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
@@ -163,8 +90,8 @@ const { Content } = await post.render();
             d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-68-76a12,12,0,1,1-12-12A12,12,0,0,1,140,132Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,132ZM96,172a12,12,0,1,1-12-12A12,12,0,0,1,96,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,140,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,172Z"
           ></path></svg
         >
-        <ul class="meta-list">
-          <p class="meta-text">{postDateFormatted}</p>
+        <ul class="list-none flex pl-0 meta-list">
+          <p class="text-sm text-gray-500">{postDateFormatted}</p>
         </ul>
       </div>
     </div>
@@ -179,7 +106,7 @@ const { Content } = await post.render();
         </p>
         {post.body.length > 500 && (
           <a
-            class="read-more"
+            class="text-inherit text-sm"
             href={`${base}/category/${post.data.category}/${post.slug}`}
           >
             Devamını Oku
@@ -195,5 +122,5 @@ const { Content } = await post.render();
       </div>
     )
   }
-  {postFooter && <p class="post-footer">{postDateFormatted}</p>}
+  {postFooter && <p class="text-gray-600 text-sm">{postDateFormatted}</p>}
 </div>
