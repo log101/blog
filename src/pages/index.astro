@@ -2,7 +2,6 @@
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
-import "@/styles/home.css";
 
 import { getCollection } from "astro:content";
 import Post from "@/components/Post.astro";
@@ -11,16 +10,16 @@ const allTeknikPosts = await getCollection("blog");
 ---
 
 <Layout title="log101">
-  <div class="container">
+  <div class="w-[750px] flex flex-col gap-8 my-6">
     <Header />
-    <div class="posts">
+    <div class="flex flex-col gap-10">
       {
         allTeknikPosts
           .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
           .map((p) => <Post post={p} componentType="short" />)
       }
     </div>
-    <a class="home-all-posts" href="#">Tüm Yayınlar</a>
+    <a class="text-inherit" href="#">Tüm Yayınlar</a>
     <Footer />
   </div>
 </Layout>

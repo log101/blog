@@ -10,6 +10,7 @@ export default {
         "Trebuchet MS",
         "sans-serif",
       ],
+      mono: ["Courier New", "Courier", "monospace"],
     },
     extend: {},
   },

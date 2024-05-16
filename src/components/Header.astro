@@ -3,115 +3,64 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <style>
-  .header {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    gap: 6px;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    gap: 12px;
+  .nav-links a {
+    @apply text-xl text-inherit;
   }
 
   .contact-links a {
-    color: grey;
-  }
-
-  .undecorated-anchor a {
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    gap: 12px;
-  }
-
-  .nav-links a {
-    font-size: var(--h6-desktop);
-    color: inherit;
-  }
-
-  .title-and-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .title-and-nav hr {
-    margin-bottom: 0;
-  }
-
-  .title-and-gol {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-    height: 110px;
-  }
-
-  .title-and-gol a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .main-title {
-    font-family: "Courier New", Courier, monospace;
-    font-size: var(--h1-desktop);
-    max-width: 250;
-    margin: 0;
-    padding: 0;
-    padding-bottom: 8px;
+    @apply text-gray-500 no-underline;
   }
 </style>
 
-<div class="header">
-  <ul class="contact-links undecorated-anchor">
+<div class="flex flex-col justify-start gap-2">
+  <ul class="flex flex-row items-center list-none p-0 m-0 gap-3 contact-links">
     <li><a href="#">Eposta</a></li>
     <li><a href="#">Github</a></li>
     <li><a href="#">LinkedIn</a></li>
     <li><a href="#">CV</a></li>
   </ul>
 
-  <div class="title-and-nav">
-    <div class="title-and-gol">
-      <a href={base}><h1 class="main-title">log101</h1></a>
+  <div class="flex flex-col gap-2">
+    <div class="flex flex-row gap-4 items-center h-[110px]">
+      <a href={base} class="no-underline text-inherit"
+        ><h1 class="font-mono text-[3.815rem] max-w-[250px] m-0 p-0 pb-2">
+          log101
+        </h1></a
+      >
       <div id="board" class="board"></div>
     </div>
     <div>
-      <ul class="nav-links undecorated-anchor">
+      <ul
+        class="flex flex-row items-center justify-between list-none p-0 m-0 gap-3 nav-links"
+      >
         {
           (
             <>
               <li>
-                <a href={`${base}/category/fikir`}>Fikir</a>
+                <a href={`${base}/category/fikir`} class="no-underline">
+                  Fikir
+                </a>
               </li>
               <li>
-                <a href={`${base}/category/teknik`}>Teknik</a>
+                <a href={`${base}/category/teknik`} class="no-underline">
+                  Teknik
+                </a>
               </li>
               <li>
-                <a href={`${base}/category/edebiyat`}>Babür'ün Serüvenleri</a>
+                <a href={`${base}/category/edebiyat`} class="no-underline">
+                  Babür'ün Serüvenleri
+                </a>
               </li>
               <li>
-                <a href={`${base}/category/ansiklopedi`}>Ansiklopedi</a>
+                <a href={`${base}/category/ansiklopedi`} class="no-underline">
+                  Ansiklopedi
+                </a>
               </li>
             </>
           )
         }
       </ul>
-      <hr />
+      <hr class="mb-0" />
     </div>
   </div>
 </div>
