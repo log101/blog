@@ -69,5 +69,5 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            echo -e "Subject: Act Runner Report\n\nJob has finished with status ${{ job.status }}" | sendmail ffrknerdm@gmail.com
+            echo -e "Subject: Act Runner Report: ${{ job.status}}\nFrom: gitea@log101.dev\n\nJob has finished with status ${{ job.status }}" | sendmail ffrknerdm@gmail.com
 
