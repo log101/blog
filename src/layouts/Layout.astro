@@ -18,7 +18,9 @@ import "../styles/main.css";
     <title>{title}</title>
   </head>
   <body class="flex justify-center font-sans">
-    <div class="max-w-[750px] flex flex-col gap-8 my-6">
+    <div
+      class="md:max-w-[750px] w-full flex flex-col gap-8 md:gap-6 my-6 md:mx-0 mx-4 overflow-hidden"
+    >
       <slot />
     </div>
   </body>

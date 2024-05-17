@@ -24,16 +24,16 @@ const base = import.meta.env.BASE_URL;
     <li><a href="#">CV</a></li>
   </ul>
 
-  <div class="flex flex-col gap-2">
-    <div class="flex flex-row gap-4 items-center h-[110px]">
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-row gap-2 items-center md:h-20 h-16">
       <a href={base} class="no-underline text-inherit"
-        ><h1 class="font-mono text-[3.815rem] pb-2">log101</h1></a
+        ><h1 class="font-mono md:text-6xl text-5xl -ml-[0.27rem]">Log101</h1></a
       >
       <div id="board" class="board"></div>
     </div>
     <div>
       <ul
-        class="flex flex-row items-center justify-between list-none p-0 gap-3 nav-links"
+        class="flex md:flex-row flex-col md:items-center justify-between list-none p-0 gap-3 nav-links"
       >
         <li>
           <a href={`${base}/category/fikir`}>Fikir</a>
@@ -48,15 +48,21 @@ const base = import.meta.env.BASE_URL;
           <a href={`${base}/category/ansiklopedi`}>Ansiklopedi</a>
         </li>
       </ul>
-      <hr class="mb-0" />
+      <hr class="mb-0 mt-2" />
     </div>
   </div>
 </div>
 
 <script>
   import ConwaySimulator from "../scripts/conway-simulator";
+  let cols = 24;
+  let pixelSize = 6;
+  if (screen.availWidth > 768) {
+    cols = 46;
+    pixelSize = 10;
+  }
 
-  let gol = new ConwaySimulator(8, 46, 10, 250);
+  let gol = new ConwaySimulator(8, cols, pixelSize, 250);
   document.getElementById("board")?.append(gol.canvas);
   gol.start();
 </script>
