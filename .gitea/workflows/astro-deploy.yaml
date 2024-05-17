@@ -62,23 +62,12 @@ jobs:
             date -u
           POST_SCRIPT: "echo done at: && date -u"
       - name: Send mail
-        uses: dawidd6/action-send-mail@v3
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          # Required mail server address if not connection_url:
-          server_address: log101.dev
-          # Server port, default 25:
-          server_port: 25
-          # Optional whether this connection use TLS (default is true if server_port is 465)
-          secure: true
-          # Optional (recommended) mail server username:
-          username: ${{secrets.MAIL_USERNAME}}
-          # Optional (recommended) mail server password:
-          password: ${{secrets.MAIL_PASSWORD}}
-          # Required mail subject:
-          subject: Gitea Actions job result
-          # Required recipients' addresses:
-          to: ffrknerdm@gmail.com
-          # Required sender full name (address can be skipped):
-          from: log101@log101.dev # <user@example.com>
-          ignore_cert: true
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            echo -e "Subject: Act Runner Report\n\nJob has finished with status ${{ job.status }}" | sendmail ffrknerdm@gmail.com
 
