@@ -1,5 +1,13 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+import smiley from "@/images/1f603.svg";
+import thumbsUp from "@/images/1f44d.svg";
+import thumbsDown from "@/images/1f44e.svg";
+import lolFace from "@/images/1f602.svg";
+import pukeFace from "@/images/1f922.svg";
+import disappointed from "@/images/1f611.svg";
 
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
@@ -17,8 +25,29 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 ---
 
+<style>
+  .emoji-label {
+    @apply cursor-pointer bg-zinc-200 p-1 rounded-full;
+  }
+  .emoji-input {
+    display: none;
+  }
+  .emoji-input:checked + .emoji-label {
+    @apply cursor-pointer bg-zinc-200 p-1 rounded-full outline outline-1;
+  }
+</style>
+
 <Layout title="log101">
   <Header />
   <Post post={entry} componentType="full" />
+  <div
+    class="flex flex-row"
+    hx-get="http://localhost:8000/forms/emoji"
+    hx-trigger="load"
+    hx-swap="innerHTML"
+  >
+  </div>
   <Footer />
+
+  <script></script>
 </Layout>

@@ -4,14 +4,18 @@
 :root {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 18px;
+
   @media (min-width: 768px) {
     font-size: 20px;
   }
-  background-color: #f5fffa;
 }
 
 * {
   margin: 0;
+}
+
+body {
+  background-color: #f5fffa;
 }
 
 @layer components {
