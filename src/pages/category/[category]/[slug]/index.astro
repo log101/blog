@@ -33,7 +33,6 @@ export async function getStaticPaths() {
   <Header />
   <Post post={entry} componentType="full" />
   <div
-    class="flex flex-row"
     hx-get=`http://localhost:8000/forms/emoji?postId=${entry.id}`
     hx-trigger="load"
     hx-swap="innerHTML"

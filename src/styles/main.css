@@ -18,6 +18,15 @@ body {
   background-color: #f5fffa;
 }
 
+.emoji-button {
+  border: none;
+  @apply text-lg rounded-full p-2;
+}
+
+.emoji-buttons-container {
+  @apply flex flex-row gap-2;
+}
+
 @layer components {
   .posts {
     @apply flex flex-col gap-10 md:gap-8;
