@@ -8,7 +8,9 @@ import Post from "@/components/Post.astro";
 
 const { entry } = Astro.props;
 
-const host = import.meta.env.PROD ? import.meta.env.SITE : "http://localhost";
+const host = import.meta.env.PROD
+  ? import.meta.env.SITE
+  : "http://localhost:8000";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
