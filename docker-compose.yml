@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  astro:
+    image: registry.log101.dev/astro-nginx:latest
+    ports:
+      - "47543:80"
+    restart: unless-stopped
