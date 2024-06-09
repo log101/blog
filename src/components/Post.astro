@@ -33,9 +33,7 @@ const postDateFormatted = post.data.date.toLocaleDateString("tr-TR", {
   year: "numeric",
 });
 
-const base = import.meta.env.BASE_URL;
-
-const postLink = `${base}/category/${post.data.category}/${post.slug}`;
+const postLink = `/category/${post.data.category}/${post.slug}`;
 
 const { Content } = await post.render();
 ---
@@ -107,7 +105,7 @@ const { Content } = await post.render();
         {post.body.length > 500 && (
           <a
             class="text-inherit text-sm"
-            href={`${base}/category/${post.data.category}/${post.slug}`}
+            href={`/category/${post.data.category}/${post.slug}`}
           >
             Devamını Oku
           </a>
