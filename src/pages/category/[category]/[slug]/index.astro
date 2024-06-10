@@ -8,10 +8,6 @@ import Post from "@/components/Post.astro";
 
 const { entry } = Astro.props;
 
-const host = import.meta.env.PROD
-  ? import.meta.env.SITE
-  : "http://localhost:8000";
-
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
   return blogEntries.map((entry) => ({
@@ -36,13 +32,19 @@ export async function getStaticPaths() {
 <Layout title="log101">
   <Header />
   <Post post={entry} componentType="full" />
-  <div
-    hx-get=`${host}/blog/api/forms/emoji?postId=${entry.id}`
-    hx-trigger="load"
-    hx-swap="innerHTML"
-  >
-  </div>
-  <Footer />
 
-  <script></script>
+  <form
+    hx-post="http://localhost:8000/blog/api/forms/emoji/post"
+    hx-target="#reaction-buttons"
+  >
+    <input type="hidden" name="postId" value=`${entry.id}` />
+    <div
+      id="reaction-buttons"
+      hx-get=`http://localhost:8000/blog/api/forms/emoji?postId=${entry.id}`
+      hx-trigger="load"
+      hx-swap="innerHTML"
+    >
+    </div>
+  </form>
+  <Footer />
 </Layout>
