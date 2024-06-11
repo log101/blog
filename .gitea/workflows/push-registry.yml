@@ -43,18 +43,21 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build
         working-directory: ${{ env.BUILD_PATH }}
+      - uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.KEY }}
       - name: Deploy to my server
         uses: up9cloud/action-rsync@master
         env:
+          USER: ${{ secrets.USERNAME }}
           HOST: ${{ secrets.HOST }}
           KEY: ${{ secrets.KEY }}
+          SOURCE: ./dist/
           TARGET: ${{ secrets.DESTINATION_FOLDER }}
 
-          VERBOSE: true
-          USER: ${{ secrets.USERNAME }}
-          ARGS: -az --exclude=/.git/
+          ARGS: -avz --exclude=/.git/
           SSH_ARGS: "-p 22 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-          SOURCE: ./dist/
+          VERBOSE: true
 
           PRE_SCRIPT: |
             echo start at:
