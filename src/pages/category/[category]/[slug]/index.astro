@@ -21,6 +21,6 @@ export async function getStaticPaths() {
 <Layout title="log101">
   <Header />
   <Post post={entry} componentType="full" />
-  <EmojiReactionForm postId={entry.id} />
+  <EmojiReactionForm entryId={entry.id} />
   <Footer />
 </Layout>
