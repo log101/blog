@@ -55,14 +55,24 @@
 
 <script>
   import ConwaySimulator from "../scripts/conway-simulator";
+  let rows = 8;
   let cols = 24;
-  let pixelSize = 4;
+  let pixelSize = 6;
+  let delay = 250;
+
   if (screen.availWidth > 768) {
     cols = 46;
     pixelSize = 8;
   }
 
-  let gol = new ConwaySimulator(8, cols, pixelSize, 250);
-  document.getElementById("board")?.append(gol.canvas);
-  gol.start();
+  let gameOfLife = new ConwaySimulator(rows, cols, pixelSize, delay);
+
+  const boardElement = document.getElementById("board");
+  if (boardElement) {
+    boardElement.append(gameOfLife.canvas);
+  } else {
+    console.error("Board element could not be found.");
+  }
+
+  gameOfLife.start();
 </script>

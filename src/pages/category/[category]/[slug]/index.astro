@@ -5,6 +5,7 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
 import Post from "@/components/Post.astro";
+import EmojiReactionForm from "@/components/EmojiReactionForm.astro";
 
 const { entry } = Astro.props;
 
@@ -15,38 +16,11 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
-
-const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
 ---
-
-<style>
-  .emoji-label {
-    @apply cursor-pointer bg-zinc-200 p-1 rounded-full;
-  }
-  .emoji-input {
-    display: none;
-  }
-  .emoji-input:checked + .emoji-label {
-    @apply cursor-pointer bg-zinc-200 p-1 rounded-full outline outline-1;
-  }
-</style>
 
 <Layout title="log101">
   <Header />
   <Post post={entry} componentType="full" />
-
-  <form
-    hx-post=`${backendHost}/blog/api/forms/emoji/post`
-    hx-target="#reaction-buttons"
-  >
-    <input type="hidden" name="postId" value=`${entry.id}` />
-    <div
-      id="reaction-buttons"
-      hx-get=`${backendHost}/blog/api/forms/emoji?postId=${entry.id}`
-      hx-trigger="load"
-      hx-swap="innerHTML"
-    >
-    </div>
-  </form>
+  <EmojiReactionForm postId={entry.id} />
   <Footer />
 </Layout>

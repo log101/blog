@@ -1,0 +1,49 @@
+---
+const { entryId } = Astro.props;
+const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
+---
+
+<style is:global>
+  .emoji-button {
+    border: none;
+    @apply text-lg rounded-full p-2;
+  }
+
+  .emoji-buttons-container {
+    @apply flex flex-row gap-2;
+  }
+</style>
+
+<form
+  hx-post=`${backendHost}/blog/api/forms/emoji/post`
+  hx-target="#reaction-buttons"
+>
+  <input type="hidden" name="postId" value=`${entryId}` />
+  <div
+    id="reaction-buttons"
+    hx-get=`${backendHost}/blog/api/forms/emoji?postId=${entryId}`
+    hx-trigger="load"
+    hx-swap="innerHTML"
+  >
+    <div class="emoji-buttons-container">
+      <button name="emojiInput" value="👍" type="submit" class="emoji-button"
+        >👍&nbsp;</button
+      >
+      <button name="emojiInput" value="👎" type="submit" class="emoji-button"
+        >👎&nbsp;</button
+      >
+      <button name="emojiInput" value="😀" type="submit" class="emoji-button"
+        >😀&nbsp;</button
+      >
+      <button name="emojiInput" value="😑" type="submit" class="emoji-button"
+        >😑&nbsp;</button
+      >
+      <button name="emojiInput" value="🤢" type="submit" class="emoji-button"
+        >🤢&nbsp;</button
+      >
+      <button name="emojiInput" value="👀" type="submit" class="emoji-button"
+        >👀&nbsp;</button
+      >
+    </div>
+  </div>
+</form>
