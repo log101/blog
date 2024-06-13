@@ -1,5 +1,8 @@
 run-name: ${{ gitea.actor }}, deploy with ssh
-on: [push]
+on:
+  push:
+    branches:
+      - "release"
 
 env:
   BUILD_PATH: "."
