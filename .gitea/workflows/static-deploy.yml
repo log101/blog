@@ -51,6 +51,7 @@ jobs:
           ${{ steps.detect-package-manager.outputs.runner }} astro build
         working-directory: ${{ env.BUILD_PATH }}
       - name: Deploy to my server
+        id: deploy
         uses: up9cloud/action-rsync@master
         env:
           USER: ${{ secrets.USERNAME }}
@@ -67,12 +68,16 @@ jobs:
             echo start at:
             date -u
           POST_SCRIPT: "echo done at: && date -u"
-      - name: Send mail
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        if: ${{ always() }}
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            echo -e "Subject: Act Runner Report: ${{ job.status}}\nFrom: gitea@log101.dev\n\nJob has finished with status ${{ job.status }}\n${{ github.repository }}: [${{ github.ref }}@${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/actions)" | sendmail ffrknerdm@gmail.com
+          server_address: mail.log101.dev
+          server_port: 465
+          secure: true
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Github Actions job result
+          to: ffrknerdm@gmail.com
+          from: gitea@log101.dev
+          body: Build job of ${{github.repository}} completed with status ${{ steps.deploy.outcome }}!
