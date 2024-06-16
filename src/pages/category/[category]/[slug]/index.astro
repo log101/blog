@@ -18,9 +18,62 @@ export async function getStaticPaths() {
 }
 ---
 
+<style>
+  .textarea {
+    resize: none;
+  }
+
+  textarea::placeholder {
+    @apply font-sans text-sm;
+  }
+
+  input::placeholder {
+    @apply font-sans text-sm;
+  }
+</style>
 <Layout title="log101">
   <Header />
   <Post post={entry} componentType="full" />
   <EmojiReactionForm entryId={entry.id} />
+
+  <section class="comments">
+    <h6 class="text-xl mb-3">Yorumlar</h6>
+    <div class="flex flex-col gap-6">
+      <div
+        class="comment border-black border border-solid rounded pt-1 pb-6 ml-4"
+      >
+        <p class="font-semibold pl-3 pr-2 pb-1">Arafat Candan</p>
+        <hr />
+        <p class="pl-3 py-2 pr-4">
+          Daha önce hiç bu açıdan bakmamıştım, harika bir yazı olmuş.
+        </p>
+      </div>
+      <div
+        class="comment border-black border border-solid rounded pt-1 pb-6 ml-4"
+      >
+        <p class="font-semibold pl-3 pr-2 pb-1">Asude Fikrim</p>
+        <hr />
+        <p class="pl-3 py-2 pr-4">
+          Keşke biraz daha uğraşsaydınız, fikirler ibtidai seviyede kalmış.
+          Örnek olarak falanca siteye göz gezdirebilirsiniz.
+        </p>
+      </div>
+      <hr />
+      <form>
+        <div class="p-1 flex flex-col gap-3">
+          <textarea
+            class="textarea py-2 px-2 w-full box-border"
+            rows="5"
+            placeholder="Yazı hakkındaki düşünceleriniz nelerdir?"></textarea>
+          <input
+            type="text"
+            class="w-full py-2 px-2 box-border"
+            placeholder="İsminiz (Yazmak zorunda değilsiniz)"
+          />
+          <button type="submit" class="w-16">Yorum Yap</button>
+        </div>
+      </form>
+    </div>
+  </section>
   <Footer />
 </Layout>

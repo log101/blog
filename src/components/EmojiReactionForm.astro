@@ -21,7 +21,7 @@ const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
   <input type="hidden" name="postId" value=`${entryId}` />
   <div
     id="reaction-buttons"
-    hx-get=`${backendHost}/blog/api/forms/emoji?postId=${entryId}`
+    hx-get=`${backendHost}/api/blog/forms/emoji?postId=${entryId}`
     hx-trigger="load"
     hx-swap="innerHTML"
   >
