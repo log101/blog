@@ -50,6 +50,9 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build
         working-directory: ${{ env.BUILD_PATH }}
+      - uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
       - name: Deploy to my server
         id: deploy
         uses: up9cloud/action-rsync@master
