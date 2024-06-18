@@ -27,9 +27,16 @@ const allTeknikPosts = await getCollection(
   <Header />
   <div class="posts">
     {
-      allTeknikPosts
-        .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
-        .map((p) => <Post post={p} componentType="long" />)
+      allTeknikPosts.length > 0 ? (
+        allTeknikPosts
+          .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
+          .map((p) => <Post post={p} componentType="long" />)
+      ) : (
+        <p>
+          Henüz bu kategoride bir yazı yazılmadı. Yazarımızın ilhama veya
+          teşviğe ihtiyacı olabilir!
+        </p>
+      )
     }
   </div>
   <Footer />
