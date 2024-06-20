@@ -12,6 +12,8 @@ import Comment from "@/components/Comment.astro";
 
 const { entry } = Astro.props;
 
+const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
+
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
   return blogEntries.map((entry) => ({
@@ -29,10 +31,16 @@ export async function getStaticPaths() {
   <section class="comments">
     <h6 class="text-xl mb-3">Yorumlar</h6>
     <div class="flex flex-col gap-6">
-      <Comment />
-      <Comment />
+      <div
+        hx-get=`${backendHost}/api/blog/comments?postId=${entry.id}`
+        hx-trigger="load"
+        hx-swap="innerHTML"
+        id="comments-container"
+      >
+        <p id="no-comments-text">Henüz yorum yok!</p>
+      </div>
       <HorizontalLine />
-      <CommentForm />
+      <CommentForm entryId={entry.id} />
     </div>
   </section>
   <Footer />
