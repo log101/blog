@@ -7,7 +7,7 @@ import Footer from "@/components/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
 import Post from "@/components/Post.astro";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: { paginate: any }) {
   const blogEntries = await getCollection("blog");
   const filteredPosts = blogEntries.filter((post) => post.data.category);
 
@@ -22,6 +22,8 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 
 const posts = page.data as Array<any>;
+
+const pages = Array.from({ length: page.lastPage }, (_, i) => i + 1);
 ---
 
 <Layout title="log101">
@@ -39,6 +41,34 @@ const posts = page.data as Array<any>;
         </p>
       )
     }
+  </div>
+  <div id="pagination-container" class="flex gap-2">
+    <button
+      ><a href={page.url.prev} class="no-underline text-inherit">geri git</a
+      ></button
+    >
+    {
+      pages.map((pageNumber) => {
+        switch (pageNumber) {
+          case page.currentPage:
+            return <a>{pageNumber}</a>;
+
+          default:
+            return (
+              <a
+                href={`${page.url.current.slice(0, -1)}${pageNumber}`}
+                class="text-inherit"
+              >
+                {pageNumber}
+              </a>
+            );
+        }
+      })
+    }
+    <button
+      ><a href={page.url.next} class="no-underline text-inherit">ileri git</a
+      ></button
+    >
   </div>
   <Footer />
 </Layout>
