@@ -9,9 +9,11 @@ import Post from "@/components/Post.astro";
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   const blogEntries = await getCollection("blog");
-  const filteredPosts = blogEntries.filter((post) => post.data.category);
 
   return CATEGORIES.flatMap((category) => {
+    const filteredPosts = blogEntries.filter(
+      (post) => post.data.category == category
+    );
     return paginate(filteredPosts, {
       params: { category },
       pageSize: 3,
@@ -36,39 +38,45 @@ const pages = Array.from({ length: page.lastPage }, (_, i) => i + 1);
           .map((p) => <Post post={p} componentType="long" />)
       ) : (
         <p>
-          Henüz bu kategoride bir yazı yazılmadı. Yazarımızın ilhama veya
+          Henüz bu kategoride bir yazı yayınlanmadı. Yazarımızın ilhama veya
           teşviğe ihtiyacı olabilir!
         </p>
       )
     }
   </div>
-  <div id="pagination-container" class="flex gap-2">
-    <button
-      ><a href={page.url.prev} class="no-underline text-inherit">geri git</a
-      ></button
-    >
-    {
-      pages.map((pageNumber) => {
-        switch (pageNumber) {
-          case page.currentPage:
-            return <a>{pageNumber}</a>;
+  {
+    page.lastPage != 1 && (
+      <>
+        <div id="pagination-container" class="flex gap-2">
+          <button>
+            <a href={page.url.prev} class="no-underline text-inherit">
+              geri git
+            </a>
+          </button>
+          {pages.map((pageNumber) => {
+            switch (pageNumber) {
+              case page.currentPage:
+                return <a>{pageNumber}</a>;
 
-          default:
-            return (
-              <a
-                href={`${page.url.current.slice(0, -1)}${pageNumber}`}
-                class="text-inherit"
-              >
-                {pageNumber}
-              </a>
-            );
-        }
-      })
-    }
-    <button
-      ><a href={page.url.next} class="no-underline text-inherit">ileri git</a
-      ></button
-    >
-  </div>
+              default:
+                return (
+                  <a
+                    href={`${page.url.current.slice(0, -1)}${pageNumber}`}
+                    class="text-inherit"
+                  >
+                    {pageNumber}
+                  </a>
+                );
+            }
+          })}
+          <button>
+            <a href={page.url.next} class="no-underline text-inherit">
+              ileri git
+            </a>
+          </button>
+        </div>
+      </>
+    )
+  }
   <Footer />
 </Layout>
