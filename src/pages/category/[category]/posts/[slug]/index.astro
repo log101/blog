@@ -8,7 +8,6 @@ import Post from "@/components/Post.astro";
 import EmojiReactionForm from "@/components/EmojiReactionForm.astro";
 import CommentForm from "@/components/CommentForm.astro";
 import HorizontalLine from "@/components/HorizontalLine.astro";
-import Comment from "@/components/Comment.astro";
 
 const { entry } = Astro.props;
 
@@ -16,6 +15,7 @@ const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
+
   return blogEntries.map((entry) => ({
     params: { category: entry.data.category, slug: entry.slug },
     props: { entry },

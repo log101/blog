@@ -7,28 +7,29 @@ import Footer from "@/components/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
 import Post from "@/components/Post.astro";
 
-export function getStaticPaths() {
-  return CATEGORIES.map((category) => {
-    return {
+export async function getStaticPaths({ paginate }) {
+  const blogEntries = await getCollection("blog");
+  const filteredPosts = blogEntries.filter((post) => post.data.category);
+
+  return CATEGORIES.flatMap((category) => {
+    return paginate(filteredPosts, {
       params: { category },
-    };
+      pageSize: 3,
+    });
   });
 }
 
-const { category } = Astro.params;
+const { page } = Astro.props;
 
-const allTeknikPosts = await getCollection(
-  "blog",
-  (post) => post.data.category === category
-);
+const posts = page.data as Array<any>;
 ---
 
 <Layout title="log101">
   <Header />
   <div class="posts">
     {
-      allTeknikPosts.length > 0 ? (
-        allTeknikPosts
+      posts.length > 0 ? (
+        posts
           .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
           .map((p) => <Post post={p} componentType="long" />)
       ) : (
