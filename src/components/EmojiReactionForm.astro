@@ -16,7 +16,8 @@ const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
 
 <form
   hx-post=`${backendHost}/api/blog/forms/emoji`
-  hx-target="#reaction-buttons">
+  hx-target="#reaction-buttons"
+  hx-trigger="submit delay:0.5s">
   <input type="hidden" name="postId" value=`${entryId}` />
   <div
     id="reaction-buttons"
@@ -24,24 +25,24 @@ const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
     hx-trigger="load"
     hx-swap="innerHTML">
     <div class="emoji-buttons-container">
-      <button name="emojiInput" value="👍" type="submit" class="emoji-button"
-        >&nbsp;👍&nbsp;</button
-      >
-      <button name="emojiInput" value="👎" type="submit" class="emoji-button"
-        >&nbsp;👎&nbsp;</button
-      >
-      <button name="emojiInput" value="😀" type="submit" class="emoji-button"
-        >&nbsp;😀&nbsp;</button
-      >
-      <button name="emojiInput" value="😑" type="submit" class="emoji-button"
-        >&nbsp;😑&nbsp;</button
-      >
-      <button name="emojiInput" value="🤢" type="submit" class="emoji-button"
-        >&nbsp;🤢&nbsp;</button
-      >
-      <button name="emojiInput" value="👀" type="submit" class="emoji-button"
-        >&nbsp;👀&nbsp;</button
-      >
+      <button name="emojiInput" value="👍" type="submit" class="emoji-button">
+        &nbsp;👍&nbsp;
+      </button>
+      <button name="emojiInput" value="👎" type="submit" class="emoji-button">
+        &nbsp;👎&nbsp;
+      </button>
+      <button name="emojiInput" value="😀" type="submit" class="emoji-button">
+        &nbsp;😀&nbsp;
+      </button>
+      <button name="emojiInput" value="😑" type="submit" class="emoji-button">
+        &nbsp;😑&nbsp;
+      </button>
+      <button name="emojiInput" value="🤢" type="submit" class="emoji-button">
+        &nbsp;🤢&nbsp;
+      </button>
+      <button name="emojiInput" value="👀" type="submit" class="emoji-button">
+        &nbsp;👀&nbsp;
+      </button>
     </div>
   </div>
 </form>
