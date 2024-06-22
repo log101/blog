@@ -47,7 +47,7 @@ const postDateFormatted = post.data.date.toLocaleDateString("tr-TR", {
 });
 
 // Create post link
-const postLink = `/category/${post.data.category}/posts/${post.slug}`;
+const postLink = `/${post.data.category}/${post.slug}`;
 
 // Create post content as an astro component
 const { Content } = await post.render();
