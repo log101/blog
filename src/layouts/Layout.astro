@@ -15,7 +15,6 @@ import "../styles/main.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <script src="../scripts/htmx.min.js"></script>
     <meta name="htmx-config" content='{code:"204", swap: false}' />
     <title>{title}</title>
   </head>
@@ -25,4 +24,9 @@ import "../styles/main.css";
       <slot />
     </div>
   </body>
+  <script>
+    import htmx from "htmx.org";
+
+    window.htmx = htmx;
+  </script>
 </html>
