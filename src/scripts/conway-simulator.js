@@ -1,3 +1,5 @@
+// https://github.com/Tebs-Lab/conways-game-of-life
+
 import { heavyWeightSpaceshipCell } from "./utils";
 
 /*

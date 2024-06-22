@@ -16,15 +16,13 @@ const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
 
 <form
   hx-post=`${backendHost}/api/blog/forms/emoji`
-  hx-target="#reaction-buttons"
->
+  hx-target="#reaction-buttons">
   <input type="hidden" name="postId" value=`${entryId}` />
   <div
     id="reaction-buttons"
     hx-get=`${backendHost}/api/blog/forms/emoji?postId=${entryId}`
     hx-trigger="load"
-    hx-swap="innerHTML"
-  >
+    hx-swap="innerHTML">
     <div class="emoji-buttons-container">
       <button name="emojiInput" value="👍" type="submit" class="emoji-button"
         >&nbsp;👍&nbsp;</button
