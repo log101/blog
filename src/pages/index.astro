@@ -18,6 +18,6 @@ const allTeknikPosts = await getCollection("blog");
         .map((p) => <Post post={p} componentType="short" />)
     }
   </div>
-  <a class="text-inherit" href="#">Tüm Yayınlar</a>
+  <a class="text-inherit" href="/posts/1">Tüm Yayınlar</a>
   <Footer />
 </Layout>

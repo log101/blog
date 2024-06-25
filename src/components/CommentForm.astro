@@ -1,0 +1,90 @@
+---
+const { entryId } = Astro.props;
+const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
+---
+
+<style>
+  .textarea {
+    resize: none;
+  }
+
+  textarea {
+    @apply font-sans text-base;
+  }
+
+  input {
+    @apply font-sans text-base;
+  }
+
+  button {
+    @apply text-sm;
+  }
+</style>
+
+<form
+  id="comment-form"
+  hx-post=`${backendHost}/api/blog/comments`
+  hx-target="#comments-container"
+  hx-swap="afterbegin"
+  hx-on:htmx:after-request="document.getElementById('no-comments-text')?.remove();this.reset()">
+  <div class="p-1 flex flex-col flex-end items-end gap-3">
+    <textarea
+      class="textarea py-2 px-3 w-full box-border"
+      rows="5"
+      placeholder="Yazı hakkındaki düşünceleriniz nelerdir?"
+      name="commentBody"
+      required></textarea>
+    <input
+      type="text"
+      class="w-full py-2 px-3 box-border"
+      placeholder="İsminiz (Yazmazsanız yorumunuz anonim kalacaktır)"
+      name="username"
+    />
+
+    <input type="hidden" name="postId" value=`${entryId}` />
+    <button type="submit" class="px-3 py-1 w-fit" id="comment-form-button"
+      >Yorum Yap</button
+    >
+  </div>
+  <div id="comment-form-error-container" class="mt-4">
+    <p id="comment-form-error-text" class="text-red-600"></p>
+  </div>
+</form>
+
+<script>
+  function showError(errorString: string) {
+    const errorTextElement = document.getElementById("comment-form-error-text");
+
+    if (errorTextElement) {
+      errorTextElement.innerText = errorString;
+    }
+
+    setTimeout(() => {
+      if (errorTextElement) {
+        errorTextElement.innerText = "";
+      }
+    }, 5000);
+  }
+
+  const formElement = document.getElementById("comment-form");
+
+  if (formElement) {
+    formElement.addEventListener(
+      "htmx:sendError" as keyof HTMLElementEventMap,
+      () => {
+        showError(
+          "Sunucuya ulaşılamadığı için yorumunuz kaydedilemedi, biraz bekledikten sonra tekrar deneyebilirsiniz.",
+        );
+      },
+    );
+
+    formElement.addEventListener(
+      "htmx:responseError" as keyof HTMLElementEventMap,
+      () => {
+        showError(
+          "Suncudan kaynaklı bir hatadan dolayı yorumunuz kaydedilemedi, biraz bekledikten sonra tekrar deneyebilirsiniz.",
+        );
+      },
+    );
+  }
+</script>

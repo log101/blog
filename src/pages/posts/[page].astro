@@ -1,0 +1,74 @@
+---
+import type { Page } from "astro";
+import { getCollection } from "astro:content";
+
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Layout from "@/layouts/Layout.astro";
+import Post from "@/components/Post.astro";
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const blogEntries = await getCollection("blog");
+  return paginate(blogEntries, {
+    pageSize: 3,
+  });
+}
+
+interface Props {
+  page: Page;
+}
+
+const { page } = Astro.props;
+
+const posts = page.data;
+
+const pages = Array.from({ length: page.lastPage }, (_, i) => i + 1);
+---
+
+<Layout title="log101">
+  <Header />
+  <div class="posts">
+    {
+      posts.length > 0 ? (
+        posts
+          .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
+          .map((p) => <Post post={p} componentType="long" />)
+      ) : (
+        <p>
+          Henüz bu kategoride bir yazı yayınlanmadı. Yazarımızın ilhama veya
+          teşviğe ihtiyacı olabilir!
+        </p>
+      )
+    }
+  </div>
+  {
+    page.lastPage != 1 && (
+      <>
+        <div id="pagination-container" class="flex gap-2">
+          <a href={page.url.prev} class="no-underline text-inherit">
+            <button class="cursor-pointer">geri git</button>
+          </a>
+          {pages.map((pageNumber) => {
+            switch (pageNumber) {
+              case page.currentPage:
+                return <a>{pageNumber}</a>;
+
+              default:
+                return (
+                  <a
+                    href={`${page.url.current.slice(0, -1)}${pageNumber}`}
+                    class="text-inherit">
+                    {pageNumber}
+                  </a>
+                );
+            }
+          })}
+          <a href={page.url.next} class="no-underline text-inherit">
+            <button class="cursor-pointer">ileri git</button>
+          </a>
+        </div>
+      </>
+    )
+  }
+  <Footer />
+</Layout>

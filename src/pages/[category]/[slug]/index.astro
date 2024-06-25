@@ -6,11 +6,16 @@ import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
 import Post from "@/components/Post.astro";
 import EmojiReactionForm from "@/components/EmojiReactionForm.astro";
+import CommentForm from "@/components/CommentForm.astro";
+import HorizontalLine from "@/components/HorizontalLine.astro";
 
 const { entry } = Astro.props;
 
+const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
+
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
+
   return blogEntries.map((entry) => ({
     params: { category: entry.data.category, slug: entry.slug },
     props: { entry },
@@ -22,5 +27,21 @@ export async function getStaticPaths() {
   <Header />
   <Post post={entry} componentType="full" />
   <EmojiReactionForm entryId={entry.id} />
+
+  <section class="comments">
+    <h6 class="text-xl mb-3">Yorumlar</h6>
+    <div class="flex flex-col gap-6">
+      <div
+        hx-get=`${backendHost}/api/blog/comments?postId=${entry.id}`
+        hx-trigger="load"
+        hx-swap="innerHTML"
+        id="comments-container"
+        class="flex flex-col gap-6">
+        <p id="no-comments-text">Henüz yorum yok!</p>
+      </div>
+      <HorizontalLine />
+      <CommentForm entryId={entry.id} />
+    </div>
+  </section>
   <Footer />
 </Layout>
