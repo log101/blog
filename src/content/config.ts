@@ -6,7 +6,7 @@ const blogCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    tags: z.array(z.string()),
+    tags: z.optional(z.array(z.string())),
     summary: z.string(),
     date: z.date(),
     category: z.enum(["fikir", "teknik", "edebiyat", "ansiklopedi"]),

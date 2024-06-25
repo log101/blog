@@ -76,7 +76,7 @@ import calendar from "@/images/calendar.svg";
     </a>
     <div class="flex flex-row gap-2">
       {
-        options.showTags && (
+        options.showTags && post.data.tags?.length && (
           <div class="flex items-center gap-1">
             <Image alt="question mark" src={questionMark} />
             <ul class="list-none flex pl-0 meta-list">
