@@ -52,6 +52,10 @@ const postLink = `/${post.data.category}/${post.slug}`;
 // Create post content as an astro component
 const { Content } = await post.render();
 
+const copyPost = post;
+copyPost.body = copyPost.body.slice(0, 500);
+const { Content: Summary } = await copyPost.render();
+
 import { Image } from "astro:assets";
 import questionMark from "@/images/questionMark.svg";
 import calendar from "@/images/calendar.svg";
@@ -101,9 +105,7 @@ import calendar from "@/images/calendar.svg";
   {
     options.longSummary && (
       <>
-        <p class="post-long-summary">
-          {post.body.slice(0, 500).replace(/(<([^>]+)>)/gi, "")}
-        </p>
+        <Summary />
         {post.body.length > 500 && (
           <a
             class="text-inherit text-sm"
