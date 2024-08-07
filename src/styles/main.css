@@ -18,8 +18,17 @@ body {
   background-color: #f5fffa;
 }
 
+@font-face {
+  font-family: "Source Code Pro";
+  src: url(/fonts/SourceCodePro-Regular.otf.woff2) format("woff2");
+}
+
 @layer components {
   .posts {
     @apply flex flex-col gap-10 md:gap-8;
+  }
+
+  .title {
+    font-family: "Source Code Pro", monospace;
   }
 }
