@@ -5,17 +5,28 @@ import Layout from "@/layouts/Layout.astro";
 
 import { getCollection } from "astro:content";
 import Post from "@/components/Post.astro";
+import BookReview from "@/components/BookReview.astro";
 
 const allTeknikPosts = await getCollection("blog");
+const allReviews = await getCollection("bookReview");
+
+const allPosts = [...allReviews, ...allTeknikPosts];
 ---
 
 <Layout title="log101">
   <Header />
   <div class="posts">
     {
-      allTeknikPosts
+      allPosts
         .sort((p1, p2) => p2.data.date.getTime() - p1.data.date.getTime())
-        .map((p) => <Post post={p} componentType="short" />)
+        .map((p) => {
+          if (p.collection == "blog") {
+            return <Post post={p} componentType="short" />;
+          } else {
+            p.collection == "bookReview";
+            return <BookReview post={p} componentType="short" />;
+          }
+        })
     }
   </div>
   <a class="text-inherit" href="/posts/1">Tüm Yayınlar</a>

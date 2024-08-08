@@ -8,6 +8,7 @@ import Post from "@/components/Post.astro";
 import EmojiReactionForm from "@/components/EmojiReactionForm.astro";
 import CommentForm from "@/components/CommentForm.astro";
 import HorizontalLine from "@/components/HorizontalLine.astro";
+import BookReview from "@/components/BookReview.astro";
 
 const { entry } = Astro.props;
 
@@ -15,8 +16,11 @@ const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
+  const allReviews = await getCollection("bookReview");
 
-  return blogEntries.map((entry) => ({
+  const allPosts = [...allReviews, ...blogEntries];
+
+  return allPosts.map((entry) => ({
     params: { category: entry.data.category, slug: entry.slug },
     props: { entry },
   }));
@@ -25,7 +29,13 @@ export async function getStaticPaths() {
 
 <Layout title="log101">
   <Header />
-  <Post post={entry} componentType="full" />
+  {
+    entry.collection === "blog" ? (
+      <Post post={entry} componentType="full" />
+    ) : (
+      <BookReview post={entry} componentType="full" />
+    )
+  }
   <EmojiReactionForm entryId={entry.id} />
 
   <section class="comments">

@@ -10,10 +10,13 @@ import Post from "@/components/Post.astro";
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   const blogEntries = await getCollection("blog");
+  const allReviews = await getCollection("bookReview");
+
+  const allPosts = [...allReviews, ...blogEntries];
 
   return CATEGORIES.flatMap((category) => {
-    const filteredPosts = blogEntries.filter(
-      (post) => post.data.category == category,
+    const filteredPosts = allPosts.filter(
+      (post) => post.data.category == category
     );
     return paginate(filteredPosts, {
       params: { category },

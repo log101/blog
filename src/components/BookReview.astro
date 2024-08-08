@@ -1,0 +1,166 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"bookReview">;
+  componentType: "short" | "long" | "full";
+}
+
+const { post, componentType } = Astro.props;
+
+// default options for the post component
+const deafultOptions = {
+  showTags: false,
+  shortSummary: false,
+  longSummary: false,
+  fullText: false,
+  postFooter: false,
+};
+
+const options = { ...deafultOptions };
+// Determine which options should be applied to post
+switch (componentType) {
+  case "full":
+    options.postFooter = true;
+    options.showTags = true;
+    options.fullText = true;
+    break;
+  case "long":
+    options.longSummary = true;
+    options.showTags = true;
+    break;
+  case "short":
+    options.shortSummary = true;
+    break;
+  default:
+    break;
+}
+
+// Options should not mutated further
+Object.freeze(options);
+
+// Format date
+const postDateFormatted = post.data.date.toLocaleDateString("tr-TR", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+// Create post link
+const postLink = `/${post.data.category}/${post.slug}`;
+
+// Create post content as an astro component
+const { Content } = await post.render();
+
+const copyPost = post;
+copyPost.body = copyPost.body.slice(0, 500);
+const { Content: Summary } = await copyPost.render();
+
+import { Image } from "astro:assets";
+import questionMark from "@/images/questionMark.svg";
+import calendar from "@/images/calendar.svg";
+---
+
+<style>
+  .meta-list li {
+    padding-top: 0.1rem;
+    &:not(:last-child) {
+      &:after {
+        content: ",\00a0";
+      }
+    }
+  }
+
+  table {
+    border: 1px solid slategrey;
+    padding: 4px;
+    background-color: #f8f9fa;
+  }
+
+  th {
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  td {
+    text-align: left;
+    white-space: nowrap;
+  }
+</style>
+
+<div class="flex flex-col gap-3">
+  <div class="flex flex-col gap-2">
+    <p class="tracking-wide text-slate-700">{post.data.subcategory}</p>
+    <a class="no-underline text-inherit" href={postLink}>
+      <h4 class="text-3xl font-normal">{post.data.title}</h4>
+    </a>
+    <div class="flex flex-row gap-2">
+      {
+        options.showTags && post.data.tags?.length && (
+          <div class="flex items-center gap-1">
+            <Image alt="question mark" src={questionMark} />
+            <ul class="list-none flex pl-0 meta-list">
+              {post.data.tags.map((tag) => (
+                <li class="text-sm text-gray-500">{tag}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
+      <div class="flex items-center gap-1">
+        <Image alt="calendar" src={calendar} />
+        <ul class="list-none flex pl-0 meta-list">
+          <p class="text-sm text-gray-500">{postDateFormatted}</p>
+        </ul>
+      </div>
+    </div>
+  </div>
+  {options.shortSummary && <p class="post-summary">{post.data.summary}</p>}
+
+  {
+    options.longSummary && (
+      <>
+        <Summary />
+        {post.body.length > 500 && (
+          <a
+            class="text-inherit text-sm"
+            href={`/${post.data.category}/${post.slug}`}>
+            Devamını Oku
+          </a>
+        )}
+      </>
+    )
+  }
+  {
+    options.fullText && (
+      <div class="text-lg gap-3">
+        <table class="float-right mt-0 mb-2 mr-2 ml-2">
+          <caption class="caption-top">{post.data.title}</caption>
+          <tbody>
+            <tr>
+              <td colspan="2" style="text-align: center;">
+                <img src={post.data.bookCover.src} width="250" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Yazar:</th>
+              <td>{post.data.bookAuthor}</td>
+            </tr>
+            <tr>
+              <th scope="row">Yayınevi:</th>
+              <td>{post.data.publisher}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <Content />
+      </div>
+    )
+  }
+  {
+    options.postFooter && (
+      <p class="text-gray-600 text-sm">{postDateFormatted}</p>
+    )
+  }
+</div>
