@@ -1,4 +1,5 @@
 ---
+draft: false
 title: Yayındayız!
 summary: Sayfanın açılış duyurusu.
 category: fikir

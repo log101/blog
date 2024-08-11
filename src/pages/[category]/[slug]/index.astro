@@ -18,7 +18,9 @@ export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
   const allReviews = await getCollection("bookReview");
 
-  const allPosts = [...allReviews, ...blogEntries];
+  const allPosts = [...allReviews, ...blogEntries].filter(
+    (post) => !post.data.draft
+  );
 
   return allPosts.map((entry) => ({
     params: { category: entry.data.category, slug: entry.slug },

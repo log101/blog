@@ -1,4 +1,5 @@
 ---
+draft: true
 title: The Coevolution
 summary: The Coevolution kitabının incelemesi.
 category: fikir

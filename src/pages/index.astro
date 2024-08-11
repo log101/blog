@@ -10,7 +10,9 @@ import BookReview from "@/components/BookReview.astro";
 const allTeknikPosts = await getCollection("blog");
 const allReviews = await getCollection("bookReview");
 
-const allPosts = [...allReviews, ...allTeknikPosts];
+const allPosts = [...allReviews, ...allTeknikPosts].filter(
+  (post) => !post.data.draft
+);
 ---
 
 <Layout title="log101">

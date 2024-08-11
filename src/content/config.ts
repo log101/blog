@@ -3,6 +3,7 @@ import { z, defineCollection } from "astro:content";
 export const CATEGORIES = ["fikir", "teknik", "edebiyat", "ansiklopedi"];
 
 const blogPostSchema = z.object({
+  draft: z.boolean(),
   title: z.string(),
   tags: z.optional(z.array(z.string())),
   summary: z.string(),
