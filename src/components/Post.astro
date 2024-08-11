@@ -53,8 +53,6 @@ const postLink = `/${post.data.category}/${post.slug}`;
 const { Content } = await post.render();
 
 const copyPost = post;
-copyPost.body = copyPost.body.slice(0, 500);
-const { Content: Summary } = await copyPost.render();
 
 import { Image } from "astro:assets";
 import questionMark from "@/images/questionMark.svg";
@@ -100,22 +98,12 @@ import calendar from "@/images/calendar.svg";
       </div>
     </div>
   </div>
-  {options.shortSummary && <p class="post-summary">{post.data.summary}</p>}
-
   {
-    options.longSummary && (
-      <>
-        <Summary />
-        {post.body.length > 500 && (
-          <a
-            class="text-inherit text-sm"
-            href={`/${post.data.category}/${post.slug}`}>
-            Devamını Oku
-          </a>
-        )}
-      </>
+    (options.shortSummary || options.longSummary) && (
+      <p class="post-summary">{post.data.summary}</p>
     )
   }
+
   {
     options.fullText && (
       <div class="text-lg">

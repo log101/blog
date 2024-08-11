@@ -1,6 +1,6 @@
 ---
 draft: false
-title: İlk Katkınzıın Hikayesi
+title: İlk Katkınızın Hikayesi
 summary: Açık kaynak geliştiriciliğe dair izlenimler.
 category: fikir
 subcategory: Rehber
@@ -10,7 +10,7 @@ date: 2024-08-11
 <style>
 
 h3, hr {
-    margin: 1em 0 1em 0
+    margin: 0.7em 0 0.5em 0
 }
 
 </style>
@@ -39,6 +39,7 @@ O halde artık açık kaynak projelere nasıl katkı sağlayabileceğimizden bah
 2. Kaç katkı sağlayan (contributor) var.
 3. Son ayda kaç katkı isteği (pull request) kabul edilmiş.
 Eğer bu ilk katkınız olacaksa en geç 1 hafta önce güncellenmiş, en çok katkı sağlayan ve katkı isteği kabul edilmiş projeyi tercih etmenizi tavsiye ederim. Bu tür projelerin katkı sağlama süreçleri daha sistematik bir hale getirilmiş oluyor, yeni gelenlere daha hoşgörülü yaklaşılıyor ve katkı isteği hızlı bir şekilde cevaplanıyor.
+
 ### Sorun
 
 Tebrik ederim, ilk adımı attınız, sizi heyecanlandıracak hareketli bir proje buldunuz. Sırada bir sorun bulmak var. Korkmayın, durduk yere bir sorun üretmenize gerek yok. Github vb. platformlarda her projenin sorunlar (issues) kısmı olur, burada projeden faydalanan insanlar, proje ile alakalı karşılaştıkları problemleri yazarlar. Burada biraz vakit geçirmeniz gerekebilir, projeye yeni katılmış biri olarak her sorunu anlamayabilirsiniz.
@@ -48,8 +49,6 @@ Hatırlarsanız size ilk katkımın hikayesini anlatacağım demiştim.  Hikayem
 Bir sabah yeni açılan bir sorun başlığı ile karşılaştım. Test kütüphanelerini değiştirdikleri için Astro’nun bazı testlerinin güncellenmesi gerekiyordu. Eski testler bu yeni kütüphane kullanılarak tekrar yazılacaktı. Sorun başlığını açan kişi, bu sorunun projeye yeni dahil olmak isteyenler için iyi bir fırsat olduğunu da özellikle belirtmişti. Daha önce test yazmış olduğumdan,  ne yapılması gerektiğini kestirebiliyordum. Hemen yorumlar kısmında katkı sunmak istediğimi belirttim. Sırada kodda gerekli değişikleri yapıp katkı isteğini göndermek vardı.
 
 Sizin de bir sorunu seçtiğinizi varsayalım, dilerseniz sorun başlığının altına sorunla ilgilenmeye başladığınızı yorum olarak belirtebilirsiniz. Genellikle çözülmesi gereken sorun sayısı, katkı sağlayıcıların sayısından fazla olduğundan bunu yazmanıza bile gerek kalmayabilir.
-
-(Yorumumun fotoğrafı)
 
 ### Triyaj
 
@@ -69,15 +68,12 @@ Bunu tespit etmek için öncelikle sorunun açıklamasını dikkatlice okumalıs
 
 Sorunun kaynağı olan değişkeni, parametreyi, fonksiyonu vb. tespit ettikten sonra bir çözüm üretmeye çalışın. Eğer bulduğunuz çözüm birden fazla dosyada değişiklik yapmanızı gerektiriyorsa ve işe yarayıp yaramayacağından emin değilseniz hemen sorun başlığına geri dönüp aklınızdaki fikri detaylı bir şekilde yorumlar kısmına yazın. Gereksiz yere vakit kaybetmektense projede tecrübe sahibi birinden geri bildirim almak çok daha mantıklı olacaktır!
 
-(örnek geri bildirim fotoğrafı)
-
 Pekala, sorunun kaynağını tespit ettiniz, gerekli değişiklikleri yaptınız ve artık aynı adımları tekrar uyguladığınızda sorunun ortadan kalktığını gördünüz! Öncelikle sizi tebrik ederim, zor bir iş başardınız. Fakat kötü bir haberim var, sorunun gerçekten ortadan kalktığına diğer yazılımcıları da ikna etmeniz gerekiyor. Bunun için çözümünüzü test etmelisiniz!
 
 ### Test
 
 Sorunu çözmeyi başardıysanız, test yazması da zor olmayacaktır. Yine de her proje farklı bir test düzeni takip ettiği için projenizin testlerini nasıl kurguladıklarını öğrenmek biraz zaman alabilir. Diğer testleri örnek alarak testinizi yazmaya başlayın. Testiniz, sırayla sorundaki adımları canlandırmalı ve kodun herhangi bir hata vermediğini göstermeli. Bu, aynı zamanda yaptığınız değişiklikleri geri aldığınızda testin hata vermesi gerektiği anlamına geliyor. Duruma göre birden fazla test yazmanız da gerekebilir.
 
-(Astro test klasörü)
 ### Mutlu Son
 
 Uzun soluklu ve yorucu bir süreç oldu ama artık ilk katkınızı yapmaya hazırsınız! Katkı isteğinizi atın ve beklemeye başlayın. Muhtemelen yaptığınız değişiklikler öncelikle bazı otomatik testlerden geçecek. Sonrasında katkı isteklerini değerlendirmekle görevli biri katkınızı inceleyecek ve yaptığınız değişiklikleri değerlendirecektir. Şanslıysanız isteğiniz hemen kabul edilir fakat zaman zaman ilgili kişi sizden bazı düzenlemeler yapmanızı isteyebilir. Bu hevesinizi kırmasın, projenin uyum içerisinde çalışması için bütün katkıların belirli estetik ve işlevsel kriterlere uyması gerekiyor.
