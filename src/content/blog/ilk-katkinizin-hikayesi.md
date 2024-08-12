@@ -17,6 +17,13 @@ h3, hr {
     margin: 0.5em 0 0.5em 0;
 }
 
+figcaption {
+    color: gray;
+    margin-top: -0.8em;
+    text-align: center;
+    font-size: 0.9em;
+}
+
 </style>
 
 Yazılım projelerimizin belkemiği açık kaynak yazılımları yalnızca kullanması değil, geliştirmesi de ücretsiz! Korkmayın, bu yazıyı yazmamın amacı bütün gün binlerce satır kod arasında gezinmekten, hata ayıklamaktan bitap düşmüş bünyenizi daha da yormak değil. Bu yazıda yalnızca açık kaynak dünyasında kısa bir gezintiye çıkacağız. Yolun sonunda açık kaynak projelerde katkı sağlayıcı olmanın hayır işi veya vicdani sorumluluktan çok bize sağlanmış bir özgürlük ve kendimizi geliştirmenin eğlenceli bir yolu olduğunu göreceğiz!
@@ -42,6 +49,7 @@ Birinci adım açık kaynak bir projeyi gözümüze kestirmek. Projeyi uzaklarda
 3. Son ayda kaç katkı isteği (pull request) kabul edilmiş.
 
 Eğer bu ilk katkınız olacaksa en geç 1 hafta önce güncellenmiş, en çok katkı sağlayan ve katkı isteği kabul edilmiş projeyi tercih etmenizi tavsiye ederim. Bu tür projelerin katkı sağlama süreçleri daha sistematik bir hale getirilmiş oluyor, yeni gelenlere daha hoşgörülü yaklaşılıyor ve katkı istekleri hızlı bir şekilde cevaplanıyor.
+
 ### Sorun
 
 İlk adımı attıktan ve sizi heyecanlandıracak hareketli bir proje bulduktan sonra sırada bir sorun bulmak var. Korkmayın, durduk yere bir sorun çıkarmanıza gerek yok. Github vb. platformlarda her projenin sorunlar (issues) kısmı olur, burada projeden faydalanan insanlar, proje ile alakalı karşılaştıkları problemleri yazarlar. Bu kısımda biraz vakit geçirmeniz gerekebilir, projeye yeni katılmış biri olarak her sorunu anlamayabilirsiniz.
@@ -52,7 +60,8 @@ Bir sabah yeni açılan bir başlık ile karşılaştım. Test kütüphanelerini
 
 Sizin de bir sorunu seçtiğinizi varsayalım, dilerseniz sorun başlığının altına sorunla ilgilenmeye başladığınızı yorum olarak belirtebilirsiniz. Genellikle çözülmesi gereken sorun sayısı, katkı sağlayıcıların sayısından fazla olduğundan bunu yazmanıza bile gerek kalmayabilir.
 
-(Yorumumun fotoğrafı)
+![Örnek Bir Yorum](../../images/github-yorum.png)
+<figcaption>Resim 1: Örnek bir yorum</figcaption>
 
 ### Triyaj
 
@@ -72,9 +81,11 @@ Bunu tespit etmek için öncelikle sorunun açıklamasını dikkatlice okumalıs
 
 Sorunun kaynağı olan değişkeni, parametreyi, fonksiyonu vb. tespit ettikten sonra bir çözüm üretmeye çalışın. Eğer bulduğunuz çözüm birden fazla dosyada değişiklik yapmanızı gerektiriyorsa ve işe yarayıp yaramayacağından emin değilseniz hemen sorun başlığına geri dönüp aklınızdaki fikri detaylı bir şekilde yorumlar kısmına yazın. Gereksiz yere vakit kaybetmektense projede tecrübe sahibi birinden geri bildirim almanız çok daha mantıklı olacaktır!
 
-(örnek geri bildirim fotoğrafı)
-
 Sorunun kaynağını tespit ettiniz, gerekli değişiklikleri yaptınız ve artık aynı adımları tekrar uyguladığınızda sorunun ortadan kalktığını gördünüz! Öncelikle sizi tebrik ederim, zor bir işin üstesinden geldiniz. Fakat kötü bir haberim var, sorunun gerçekten ortadan kalktığına diğer yazılımcıları da ikna etmeniz gerekiyor. Bunun için çözümünüzü test etmelisiniz!
+
+![Örnek Bir Yorum](../../images/github-geribildirim.png)
+<figcaption>Resim 2: Örnek bir geri bildirim</figcaption>
+
 
 ### Test
 
