@@ -35,7 +35,7 @@ Açık kaynak yazılım, kabaca ifadesiyle herkesin dilediğince kullanabildiği
 2. Bu yazılımın kodunda kalıcı düzenlemeler, ihtiyaçlarımız doğrultusunda eklemeler ve çıkarmalar yapabiliyoruz.
 3. Yazılımın orijinal veya düzenlenmiş kopyalarını başkalarıyla paylaşabiliyoruz, hatta duruma göre satabiliyoruz [(2)](https://snyk.io/learn/open-source-licenses/).
 
-İlk bakışta bu kimsenin kalkışmayacağı bir hayır işi gibi görünse de projelerinin hızlı bir şekilde yaygınlaşmasını ve gelişmesini isteyen yazılımcılar ve yazılım firmaları bunları açık kaynak olarak paylaşmayı tercih edebiliyorlar. Bize de bunları *özgürce* kullanması kalıyor… veya değiştirmesi ve geliştirmesi! Herhalde girişte ne demek istediğim şimdi daha iyi anlaşılmıştır. Tekrarlamak pahasına: Açık kaynak yazılımlara katkı sağlamak yalnızca bir hayır işi veya vicdani sorumluluk değildir. Bu yazılımlara katkı sağlayabilmek, htiyaçlarımız doğrultusunda bu yazılımlarda değişiklikler yapabilmek bize sağlanmış bir özgürlüktür!
+İlk bakışta bu kimsenin kalkışmayacağı bir hayır işi gibi görünse de projelerinin hızlı bir şekilde yaygınlaşmasını ve gelişmesini isteyen yazılımcılar ve yazılım firmaları bunları açık kaynak olarak paylaşmayı tercih edebiliyorlar. Bize de bunları *özgürce* kullanması kalıyor… veya değiştirmesi ve geliştirmesi! Herhalde girişte ne demek istediğim şimdi daha iyi anlaşılmıştır. Tekrarlamak pahasına: Açık kaynak yazılımlara katkı sağlamak yalnızca bir hayır işi veya vicdani sorumluluk değildir. Bu yazılımlara katkı sağlayabilmek, ihtiyaçlarımız doğrultusunda bu yazılımlarda değişiklikler yapabilmek bize sağlanmış bir özgürlüktür!
 
 O halde artık açık kaynak projelere nasıl katkı sağlayabileceğimizden bahsedebiliriz. Katkı sağlayıcı olmanın çetrefilli yanları var ve katkıda bulunmak istediğiniz projelerle ilk kez karşılaştığınızda tedirgin olabilirsiniz; her işin başında olduğu gibi! İşte tam da bu noktada katkı sağlama sürecini tanımak işinizi kolaylaştıracak ve özgüveninizi arttıracak. Süreci iyi bir şekilde anladığınızda ne kadar tecrübesiz olursanız olun açık kaynak geliştiricisi olmanın mümkün, keyifli ve her açıdan gelişiminize katkı sağlayacak bir iş olduğunu göreceksiniz. Aynı zamanda size ilk katkımdan da bahsedeceğim, ne kadar da nostaljik!
 
@@ -56,7 +56,7 @@ Eğer bu ilk katkınız olacaksa en geç 1 hafta önce güncellenmiş, en çok k
 
 Hatırlarsanız size ilk katkımın hikayesini anlatacağım demiştim. Aynı bir önceki adımda size söylediğim şekilde ben de Astro ismindeki bir önyüz freymvörkünü (frontend framework) gözüme kestirmiştim. Birkaç günümü sorunlar kısmında, yeni açılan sorun başlıklarını inceleyerek geçirdim. Pek çoğunu nasıl çözebileceğime dair hiçbir fikrim yoktu. Bu durum canımı sıkmıştı.
 
-Bir sabah yeni açılan bir başlık ile karşılaştım. Test kütüphanelerini değiştirdikleri için Astro’nun bazı testlerinin güncellenmesi gerekiyordu. Eski testler bu yeni kütüphane kullanılarak tekrar yazılacaktı. Başlığı açan kişi, bu sorunun projeye yeni dahil olmak isteyenler için iyi bir fırsat olduğunu da özellikle belirtmişti. Daha önce test yazmış olduğumdan, ne yapılması gerektiğini kestirebiliyordum. Hemen yorumlar kısmında katkı sunmak istediğimi belirttim. Sırada, kodda gerekli değişikleri yapıp katkı isteğini göndermek vardı.
+Bir sabah yeni açılan bir başlık ile karşılaştım. Test kütüphanelerini değiştirdikleri için Astro’nun bazı testlerinin güncellenmesi gerekiyordu. Eski testler bu yeni kütüphane kullanılarak tekrar yazılacaktı. Başlığı açan kişi, bu sorunun projeye yeni dahil olmak isteyenler için iyi bir fırsat olduğunu da özellikle belirtmişti. Daha önce test yazdığımdan, ne yapılması gerektiğini kestirebiliyordum. Hemen yorumlar kısmında katkı sunmak istediğimi belirttim. Sırada, kodda gerekli değişiklikleri yapıp katkı isteğini göndermek vardı.
 
 Sizin de bir sorunu seçtiğinizi varsayalım, dilerseniz sorun başlığının altına sorunla ilgilenmeye başladığınızı yorum olarak belirtebilirsiniz. Genellikle çözülmesi gereken sorun sayısı, katkı sağlayıcıların sayısından fazla olduğundan bunu yazmanıza bile gerek kalmayabilir.
 
@@ -65,7 +65,7 @@ Sizin de bir sorunu seçtiğinizi varsayalım, dilerseniz sorun başlığının 
 
 ### Triyaj
 
-Genellikle projeler yapacağınız değişiklikleri orijinal kodda değil kendi kopyanızda (fork) yapmanızı isterler. Büyük projelerin kodunu düzenlemek tabiri caizse *kirli* bir iş olduğundan, proje sahipleri muhtemel karışıkların önüne geçmek adına kendi kopyanızdan çalışmanızı talep ederler. Neyse ki bir projenin kopyasını oluşturmak birkaç saniyelik oldukça basit bir iştir.
+Genellikle projeler yapacağınız değişiklikleri orijinal kodda değil kendi kopyanızda (fork) yapmanızı isterler. Büyük projelerin kodunu düzenlemek tabiri caizse *kirli* bir iş olduğundan, proje sahipleri muhtemel karışıklıkların önüne geçmek adına kendi kopyanızdan çalışmanızı talep ederler. Neyse ki bir projenin kopyasını oluşturmak birkaç saniyelik oldukça basit bir iştir.
 
 Bu aşamada ana klasörün altında `CONTRIBUTING.md` isminde bir doküman olup olmadığını kontrol etmeyi unutmayın. Bu dokümandan ilgili projede katkı sağlama sürecinin nasıl işlediğini ve nelere dikkat etmeniz gerektiğini öğrenebilirsiniz.
 
@@ -95,7 +95,7 @@ Sorunu çözmeyi başardıysanız, test yazması da zor olmayacaktır. Yine de h
 
 Uzun soluklu ve yorucu bir süreçti ama artık ilk katkınızı yapmaya hazırsınız! Katkı isteğinizi atın ve beklemeye başlayın. Muhtemelen yaptığınız değişiklikler öncelikle bazı otomatik testlerden geçecek. Sonrasında katkı isteklerini değerlendirmekle görevli biri katkınızı inceleyecek ve yaptığınız değişiklikleri değerlendirecektir. Şanslıysanız isteğiniz hemen kabul edilir fakat zaman zaman görevli kişi sizden bazı düzenlemeler yapmanızı isteyebilir. Bu hevesinizi kırmasın, projenin uyum içerisinde çalışması için bütün katkıların belirli işlevsel ve estetik kriterlere uyması gerekiyor.
 
-Düzenlemelerden sonra katkı isteğiniz kabul edilirse öncelikle derin bir nefes alın, sonra bilgisayarınızı kapatıp soğuk bir bardak su için. Aynaya bakıp gülümseyin ve yaptığınız değişiklerin gelecek güncelleme ile beraber binlerce bilgisayara dalga dalga yayılacağını hayal edin.
+Düzenlemelerden sonra katkı isteğiniz kabul edilirse öncelikle derin bir nefes alın, sonra bilgisayarınızı kapatıp soğuk bir bardak su için. Aynaya bakıp gülümseyin ve yaptığınız değişikliklerin gelecek güncelleme ile beraber binlerce bilgisayara dalga dalga yayılacağını hayal edin.
 
 Katkı sağlama sürecini son kez özetleyecek olursak:
 1. Zevkinize uygun hareketli bir proje seçimi.
