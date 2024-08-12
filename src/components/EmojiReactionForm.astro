@@ -10,7 +10,7 @@ const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
   }
 
   .emoji-buttons-container {
-    @apply flex flex-row gap-2;
+    @apply flex flex-row flex-wrap gap-2;
   }
 </style>
 
@@ -75,19 +75,19 @@ const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
         // @ts-ignore detail attribute is added by htmx
         if (event.detail.elt.id != "reaction-buttons") {
           showError(
-            "Sunucuya ulaşılamadığı için tepkiniz kaydedilemedi, biraz bekledikten sonra tekrar deneyebilirsiniz.",
+            "Sunucuya ulaşılamadığı için tepkiniz kaydedilemedi, biraz bekledikten sonra tekrar deneyebilirsiniz."
           );
         }
-      },
+      }
     );
 
     formElement.addEventListener(
       "htmx:responseError" as keyof HTMLElementEventMap,
       () => {
         showError(
-          "Sunucudan kaynaklanan bir hatadan dolayı tepkiniz kaydedilemedi, biraz bekledikten sonra tekrar deneyebilirsiniz.",
+          "Sunucudan kaynaklanan bir hatadan dolayı tepkiniz kaydedilemedi, biraz bekledikten sonra tekrar deneyebilirsiniz."
         );
-      },
+      }
     );
   }
 </script>
