@@ -2,7 +2,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Inter", Calibri, "Trebuchet MS", sans-serif;
   font-size: 18px;
 
   @media (min-width: 768px) {
@@ -21,6 +21,11 @@ body {
 @font-face {
   font-family: "Source Code Pro";
   src: url(/fonts/SourceCodePro-Regular.otf.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(/fonts/Inter-Regular.otf.woff2) format("woff2");
 }
 
 @layer components {
