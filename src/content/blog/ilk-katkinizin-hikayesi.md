@@ -26,7 +26,7 @@ figcaption {
 
 </style>
 
-Yazılım projelerimizin belkemiği açık kaynak yazılımları yalnızca kullanması değil, geliştirmesi de ücretsiz! Korkmayın, bu yazıyı yazmamın amacı bütün gün binlerce satır kod arasında gezinmekten, hata ayıklamaktan bitap düşmüş bünyenizi daha da yormak değil. Bu yazıda yalnızca açık kaynak dünyasında kısa bir gezintiye çıkacağız. Yolun sonunda açık kaynak projelerde katkı sağlayıcı olmanın hayır işi veya vicdani sorumluluktan çok bize sağlanmış bir özgürlük ve kendimizi geliştirmenin eğlenceli bir yolu olduğunu göreceğiz!
+Yazılım projelerimizin belkemiği açık kaynak yazılımları yalnızca kullanması değil, geliştirmesi de ücretsiz! 8 saatlik bir mesaiden sonra bu kulağa gereksiz ve yorucu bir uğraş gibi gelebilir fakat açık kaynak projelerde katkı sağlayıcı olabilmek aslında bize sağlanmış bir özgürlüktür. Eğer ikna olmadıysanız okumaya devam edin, sizinle açık kaynak dünyasında kısa bir gezintiye çıkalım.
 
 ### Açık Kaynak
 
@@ -35,7 +35,7 @@ Açık kaynak yazılım, kabaca ifadesiyle herkesin dilediğince kullanabildiği
 2. Bu yazılımın kodunda kalıcı düzenlemeler, ihtiyaçlarımız doğrultusunda eklemeler ve çıkarmalar yapabiliyoruz.
 3. Yazılımın orijinal veya düzenlenmiş kopyalarını başkalarıyla paylaşabiliyoruz, hatta duruma göre satabiliyoruz [(2)](https://snyk.io/learn/open-source-licenses/).
 
-İlk bakışta bu kimsenin kalkışmayacağı bir hayır işi gibi görünse de projelerinin hızlı bir şekilde yaygınlaşmasını ve gelişmesini isteyen yazılımcılar ve yazılım firmaları bunları açık kaynak olarak paylaşmayı tercih edebiliyorlar. Bize de bunları *özgürce* kullanması kalıyor… veya değiştirmesi ve geliştirmesi! Herhalde girişte ne demek istediğim şimdi daha iyi anlaşılmıştır. Tekrarlamak pahasına: Açık kaynak yazılımlara katkı sağlamak yalnızca bir hayır işi veya vicdani sorumluluk değildir. Bu yazılımlara katkı sağlayabilmek, ihtiyaçlarımız doğrultusunda bu yazılımlarda değişiklikler yapabilmek bize sağlanmış bir özgürlüktür!
+İlk bakışta bu kimsenin kalkışmayacağı bir hayır işi gibi görünse de, projelerinin hızlı bir şekilde yaygınlaşmasını ve gelişmesini isteyen yazılımcılar ve yazılım firmaları bunları açık kaynak olarak paylaşmayı tercih edebiliyorlar. Bize de bunları *özgürce* kullanması kalıyor… veya değiştirmesi ve geliştirmesi! Girişte özgürlük derken ne kastettiğim herhalde şimdi daha iyi anlaşılmıştır. Açık kaynak yazılımlara katkı sağlamak yalnızca bir hayır işi veya vicdani sorumluluk olarak algılanmamalıdır. Bu yazılımlara katkı sağlayabilmek, ihtiyaçlarımız doğrultusunda bu yazılımlarda değişiklikler yapabilmek aslında bize sağlanmış bir özgürlüktür!
 
 O halde artık açık kaynak projelere nasıl katkı sağlayabileceğimizden bahsedebiliriz. Katkı sağlayıcı olmanın çetrefilli yanları var ve katkıda bulunmak istediğiniz projelerle ilk kez karşılaştığınızda tedirgin olabilirsiniz; her işin başında olduğu gibi! İşte tam da bu noktada katkı sağlama sürecini tanımak işinizi kolaylaştıracak ve özgüveninizi arttıracak. Süreci iyi bir şekilde anladığınızda ne kadar tecrübesiz olursanız olun açık kaynak geliştiricisi olmanın mümkün, keyifli ve her açıdan gelişiminize katkı sağlayacak bir iş olduğunu göreceksiniz. Aynı zamanda size ilk katkımdan da bahsedeceğim, ne kadar da nostaljik!
 
