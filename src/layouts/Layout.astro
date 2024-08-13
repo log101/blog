@@ -3,9 +3,10 @@ interface Props {
   title: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogURL?: string;
 }
 
-const { title, ogTitle, ogDescription } = Astro.props;
+const { title, ogTitle, ogDescription, ogURL } = Astro.props;
 import "../styles/main.css";
 ---
 
@@ -20,7 +21,7 @@ import "../styles/main.css";
     <meta name="htmx-config" content='{"code": 204, "swap": false}' />
 
     <meta property="og:title" content={ogTitle ?? "blog.log101.dev"} />
-    <meta property="og:url" content="https://blog.log101.dev" />
+    <meta property="og:url" content={ogURL ?? "https://blog.log101.dev"} />
     <meta
       property="og:description"
       content={ogDescription ?? "Yazılıma dair..."}

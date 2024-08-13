@@ -12,6 +12,8 @@ import BookReview from "@/components/BookReview.astro";
 
 const { entry } = Astro.props;
 
+const URL = Astro.url;
+
 const backendHost = import.meta.env.PUBLIC_BACKEND_HOST;
 
 export async function getStaticPaths() {
@@ -32,7 +34,8 @@ export async function getStaticPaths() {
 <Layout
   title="log101"
   ogTitle={entry.data.title}
-  ogDescription={entry.data.summary}>
+  ogDescription={entry.data.summary}
+  ogURL={URL.toString()}>
   <Header />
   {
     entry.collection === "blog" ? (
