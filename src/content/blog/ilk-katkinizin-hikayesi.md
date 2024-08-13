@@ -26,7 +26,7 @@ figcaption {
 
 </style>
 
-Yazılım projelerimizin belkemiği açık kaynak yazılımları yalnızca kullanması değil, geliştirmesi de ücretsiz! 8 saatlik bir mesaiden sonra bu kulağa gereksiz ve yorucu bir uğraş gibi gelebilir fakat açık kaynak projelerde katkı sağlayıcı olabilmek aslında bize sağlanmış bir özgürlüktür. Eğer ikna olmadıysanız okumaya devam edin, sizinle açık kaynak dünyasında kısa bir gezintiye çıkalım.
+Yazılım projelerimizin belkemiği olan açık kaynak yazılımlar, kullanıma *açık* oldukları kadar geliştirmeye de *açıklar*. Ne var ki, bunları kullanması ne kadar kolaysa geliştirmesi de bir o kadar çetrefilli! Peki bunun bizi yıldırmasına müsaade edecek miyiz, tabi ki de hayır!  Bu yazıda açık kaynak projelerde katkı sağlayıcı olmanın zorluklarını bir kenara bırakıp, bunun aslında bize sağlanmış bir özgürlük ve kendimizi geliştirmenin eğlenceli bir yolu olduğunu göreceğiz!
 
 ### Açık Kaynak
 
