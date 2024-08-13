@@ -29,7 +29,10 @@ export async function getStaticPaths() {
 }
 ---
 
-<Layout title="log101" ogTitle="İlk Açık Kaynak Katkınızın Hikayesi">
+<Layout
+  title="log101"
+  ogTitle={entry.data.title}
+  ogDescription={entry.data.summary}>
   <Header />
   {
     entry.collection === "blog" ? (
