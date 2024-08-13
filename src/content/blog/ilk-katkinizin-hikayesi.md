@@ -23,7 +23,6 @@ figcaption {
     text-align: center;
     font-size: 0.9em;
 }
-
 </style>
 
 Yazılım projelerimizin belkemiği olan açık kaynak yazılımlar, kullanıma *açık* oldukları kadar geliştirmeye de *açıklar*. Ne var ki, bunları kullanması ne kadar kolaysa geliştirmesi de bir o kadar çetrefilli! Peki bunun bizi yıldırmasına müsaade edecek miyiz, tabi ki de hayır!  Bu yazıda açık kaynak projelerde katkı sağlayıcı olmanın zorluklarını bir kenara bırakıp, bunun aslında bize sağlanmış bir özgürlük ve kendimizi geliştirmenin eğlenceli bir yolu olduğunu göreceğiz!

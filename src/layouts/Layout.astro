@@ -1,9 +1,10 @@
 ---
 interface Props {
   title: string;
+  ogTitle?: string;
 }
 
-const { title } = Astro.props;
+const { title, ogTitle } = Astro.props;
 import "../styles/main.css";
 ---
 
@@ -16,6 +17,13 @@ import "../styles/main.css";
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <meta name="htmx-config" content='{"code": 204, "swap": false}' />
+
+    <meta property="og:title" content="blog.log101.dev" />
+    <meta property="og:url" content="https://blog.log101.dev" />
+    <meta property="og:description" content={ogTitle} />
+    <meta property="og:image" content="https://blog.log101.dev/ikon.png" />
+    <meta name="twitter:card" content="summary" />
+
     <title>{title}</title>
   </head>
   <body class="flex justify-center font-sans">
