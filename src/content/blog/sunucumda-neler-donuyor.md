@@ -53,7 +53,7 @@ td {
 
 Birkaç ay önce, Vercel’lerin, Firebase’lerin, AWS’lerin sunduğu sihirlerin etkisini yitirdiği, vadettikleri masal diyarının yerini sermayeci, küçük bir ada ülkesinin aldığı o huzursuz sınıra varmıştım. Bir başka deyişle, bu platformların sunduğu hizmetlerden ücretsiz yararlanma hakkımı kaybetmiştim, artık bir bedel ödemem gerekiyordu.
 
-Pekki bu bedeli ödemek beni özgür kılacak mıydı? Tam aksine, projemi bir PaaS’ın ahtapot kollarına teslim edeceğim bu sınırın ötesinde kapalı bir ekosistem, internette cevabı olmayan sorular ve desteklenmeyen API’ler görüyordum. Karar vermem için bana tanıdıkları o dar vakit içerisinde, daha esnek ve uzun vadeli bir çözüm arayışına giriştim.
+Peki bu bedeli ödemek beni özgür kılacak mıydı? Tam aksine, projemi bir PaaS’ın ahtapot kollarına teslim edeceğim bu sınırın ötesinde kapalı bir ekosistem, internette cevabı olmayan sorular ve desteklenmeyen API’ler görüyordum. Karar vermem için bana tanıdıkları o dar vakit içerisinde, daha esnek ve uzun vadeli bir çözüm arayışına giriştim.
 
 Araştırmalarım neticesinde bulduğum çözüm yeni bir teknoloji, yeni bir PaaS değildi. Çözüm geriye, DevOps’un köklerine dönmekti. Kendi CI/CD sistemimi yürütecek, uygulamalarımı sunacak, Docker imajlarımı saklayacak bir sunucu kuracaktım. Kollarımı sıvadım, 2592000 saniyelik sayacımı başlattım ve işe koyuldum.
 
@@ -127,7 +127,7 @@ Watchtower, docker imajlarını düzenli olarak kontrol ediyor ve bir güncellem
 
 ### Gözlemleme: Linux Dash
 
-Peki tüm bu saydığım servisler ne kadar kaynak tüketiyor. Özellikle RAM kapasiteniz yalnızca 2 gigabaytsa sistemin ne kadar kaynak tükettiğini görmek oldukça önemli. [Linux Dash](https://github.com/tariqbuilds/linux-dash) bunun için kullanılabilecek, Node uygulaması olarak çalıştırılan, kendisi de çok az kaynak tüketen bir servis. Bu servis sayesinde sisteminizin durumunu RAM, CPU vb. göstergeler üzerinden takip edebiliyorsunuz. Sunucumun gözlem sayfası için: https://monitor.log101.dev
+Peki tüm bu saydığım servisler ne kadar kaynak tüketiyor? Özellikle RAM kapasiteniz yalnızca 2 gigabaytsa sistemin ne kadar kaynak tükettiğini görmek oldukça önemli. [Linux Dash](https://github.com/tariqbuilds/linux-dash) bunun için kullanılabilecek, Node uygulaması olarak çalıştırılan, kendisi de çok az kaynak tüketen bir servis. Bu servis sayesinde sisteminizin durumunu RAM, CPU vb. göstergeler üzerinden takip edebiliyorsunuz. Sunucumun gözlem sayfası için: https://monitor.log101.dev
 
 ### Gelecek
 
