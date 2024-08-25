@@ -51,7 +51,7 @@ td {
 
 </style>
 
-Birkaç ay önce, Vercel’lerin, Firebase’lerin, AWS’lerin sunduğu sihirlerin etkisini yitirdiği, vadettikleri masal diyarının yerini sermayeci, küçük bir ada ülkesinin aldığı o huzursuz sınıra varmıştım. Bir başka deyişle, bu platformların sunduğu hizmetlerden ücretsiz yararlanma hakkımı kaybetmiştim, artık bir bedel ödemem gerekiyordu.
+Birkaç ay önce, Vercel’lerin, Firebase’lerin, AWS’lerin sunduğu sihirlerin etkisini yitirdiği, vadettiği masal diyarının yerini sermayeci, küçük bir ada ülkesinin aldığı o huzursuz sınıra varmıştım. Bir başka deyişle, bu platformların sunduğu hizmetlerden ücretsiz yararlanma hakkımı kaybetmiştim, artık bir bedel ödemem gerekiyordu.
 
 Peki bu bedeli ödemek beni özgür kılacak mıydı? Tam aksine, projemi bir PaaS’ın ahtapot kollarına teslim edeceğim bu sınırın ötesinde kapalı bir ekosistem, internette cevabı olmayan sorular ve desteklenmeyen API’ler görüyordum. Karar vermem için bana tanıdıkları o dar vakit içerisinde, daha esnek ve uzun vadeli bir çözüm arayışına giriştim.
 
