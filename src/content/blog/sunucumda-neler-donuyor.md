@@ -24,7 +24,7 @@ figcaption {
     font-size: 0.9em;
 }
 
-ul {
+#toc > ul {
     line-height: 2em;
 }
 
@@ -59,7 +59,11 @@ Araştırmalarım neticesinde bulduğum çözüm yeni bir teknoloji, yeni bir Pa
 
 Sayaç sıfırı gösterdiğinde istediğim özelliklere sahip bir sunucu kurmayı başarmıştım. Yaklaşık 3 aydır işte bu sunucuyu kullanıyorum. Bu tecrübenin kendi sunucusunu kurmak isteyenlere faydalı olacağını düşünerek, sunucumdaki servisleri tanıttığım bu yazıyı kaleme aldım.
 
+<div id="toc">
+
 ### İçindekiler
+
+</div>
 
 ### Sunucumun Teknik Özellikleri
 
