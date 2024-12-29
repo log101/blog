@@ -1,3 +1,3 @@
 > Geçmesi imkansız geçmiş, gelmesi imkansız gelecek...
 
-log101.dev
+log101.dev blog
