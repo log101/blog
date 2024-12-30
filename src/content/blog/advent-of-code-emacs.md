@@ -60,19 +60,31 @@ td {
 
 ### Introduction
 
-Learning Emacs has always been a challenge. It is written in an unfamiliar language for many and most of the time there is more than one way to accomplish a task. While the manual exists practice makes it perfect.
+Learning Emacs has always been a challenge. It is written in an unfamiliar language for the majority of developers, and most of the time there is more than one way to accomplish even simple tasks. While [the manual](https://www.gnu.org/software/emacs/manual/) covers all you need to get up and running, only practice can make it stick!
 
-When December rolled around, bringing with it Advent of Code, I thought as it is a tradition to tackle AoC challanges in obscure languages and environments, Emacs is a perfect candidate. Also the problems are text based, who deals with text better than Emacs? In this blog post, we'll explore three things that I found AoC helps us understand better about Emacs.
+Last November, while exploring the manual, I realized December was approaching, bringing [Advent of Code](https://adventofcode.com/) with it. As it’s a tradition to tackle AoC challenges in obscure languages and environments, I thought Emacs Lisp would be a perfect candidate. After all, Emacs is primarily a text processor (among many other things), and AoC problems are all text-based.
+
+In this blog post, we'll explore three topics that I found AoC helps us understand better about Emacs.
+
+<div id="toc">
+<h3 id="contents">Contents</h3>
+<ul>
+<li><a href="#integrated-help">Integrated Help</a></li>
+<li><a href="#buffers">Buffers</a></li>
+<li><a href="#lisp">Lisp</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</div>
 
 ### Integrated Help
 
-Two fundamental Emacs functions quickly became my best friends: `C-h f` and `C-h v`. What is the difference between `forward-line` and `forward-logical-line`? Just move your cursor on the name of the function and run `C-h f` (I had check it multiple times). This highlights an important aspect of Emacs: As a long-running project, it has accumulated many functions that seem similar but behave subtly different. So reaching out to helpers is an important habit. While I used variable help (`C-h v`) less, it was helpful for checking global variables.
+Starting from the first day, two fundamental Emacs functions quickly became my best friends: `describe-function (C-h f)` and `(describe-variable) C-h v`. Emacs has been around for a very long time compared to other software projects, so it has accumulated many functions that seem similar but behave subtly differently. Take the difference between `forward-line` and `next-logical-line` for example, I still forget the difference! Thankfully I can just move my cursor over and enter `C-h f`.While I used variable help (`C-h v`) less, it was helpful for checking global variables’ values.
+
+Reaching out to helper functions when in need is an important habit to develop. Make sure you use them.
 
 ### Buffers
 
-I intentionally avoided converting text into matrices when solving grid-based problems because Emacs already has them, they are just called **buffers**. Buffers display text as lines and columns which makes it possible to them use them in grid operations. Guard problem (day 6) is a great example, I just used regular horizontal and vertical movement functions, rather than converting the text into a matrix.
-
-![Guardian's Path](../../images/elisp-maze.png)
+When solving grid-based problems, I took advantage of Emacs buffers instead of converting text into matrices. Since buffers consist of lines and columns, you can use regular and natural horizontal and vertical movement functions rather than using mathematical matrix operations. The Guard Problem (day 6) is a great example:
 
 ```lisp
 ;; Check end of line and move one
@@ -83,9 +95,14 @@ I intentionally avoided converting text into matrices when solving grid-based pr
     (throw 'end t)))
 ```
 
+![Guardian's Path](../../images/elisp-maze.png)
+
+<figure class="text-xs text-gray-500 mt-0 p-0" style="text-align: center; margin-top: -25px">Guard is moving around the maze.</figure>
+
+
 ### Lisp
 
-Emacs is written in C and a special dialect of lisp called Emacs Lisp. With Emacs Lisp you can change and configure your Emacs. So, to fully benefit Emacs capabilities you have to learn Emacs Lisp. AoC thought me implementing common programming concepts in lisp. Variable and function declerations, control structres, recursive patterns… All I had to learn quickly to solve the puzzles. Check out this little example:
+Emacs is written in C and a special dialect of Lisp called Emacs Lisp, which is also the language used to configure Emacs. Thanks to AoC I was able to try the structures and concepts I’ve learned in [An Introduction to Programming with Emacs Lisp](https://www.gnu.org/software/emacs/manual/eintr.html) and [the reference manual](https://www.gnu.org/software/emacs/manual/elisp.html). Check out this little example:
 
 ```lisp
 (setq antenna-regexp "[[:alnum:]]")
@@ -104,7 +121,7 @@ Emacs is written in C and a special dialect of lisp called Emacs Lisp. With Emac
       (extract-antennas-inner))))
 ```
 
-Writing this was only possible on day 8 as writing little function involves understanding and combining these concepts:
+Writing this code was only possible on day 8. It looks simple, but writing this little function involves understanding and combining these concepts:
 - Functions
 - Closures
 - Scoped variables
@@ -114,4 +131,4 @@ Writing this was only possible on day 8 as writing little function involves unde
 
 ### Summary
 
-If you’re looking for a way to support reading the manual, I’d advise trying AoC with Emacs Lisp next year. Many concept you couldn’t fully grasp will became clearer. I’m hoping to get 25/25 next year, we’ll see how it goes. I’d love to hear your thoughts, thanks a lot for reading!
+Thank you for reading my humble blog post. If you’re looking for a way to explore unfamiliar capabilities of Emacs, I’d advise you to try AoC with Emacs Lisp next year. I was only to participate for the first 7 days, but I’m hoping to get 25/25 next year, we’ll see how it goes. I’d love to hear your thoughts, thanks again for reading!
