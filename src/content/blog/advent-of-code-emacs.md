@@ -1,6 +1,6 @@
 ---
 draft: false
-title: AoC was a Great Way to Learn Emacs
+title: AoC was a Great Opportunity to Learn Emacs
 summary: Tackling AoC with Emacs Lisp.
 category: teknik
 subcategory: Emacs
