@@ -3,13 +3,7 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      sans: [
-        "Gill Sans",
-        "Gill Sans MT",
-        "Calibri",
-        "Trebuchet MS",
-        "sans-serif",
-      ],
+      sans: ["Inter", "Calibri", "Trebuchet MS", "sans-serif"],
       mono: ["Courier New", "Courier", "monospace"],
     },
     extend: {},
