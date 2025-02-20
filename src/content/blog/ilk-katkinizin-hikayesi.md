@@ -1,10 +1,10 @@
 ---
-draft: false
+draft: true
 title: İlk Katkınızın Hikayesi
+date: 2024-08-11
 summary: İlk açık kaynak katkınızı yapmak sandığınızdan çok daha kolay olacak!
 category: fikir
 subcategory: Rehber
-date: 2024-08-11
 ---
 
 <style>
