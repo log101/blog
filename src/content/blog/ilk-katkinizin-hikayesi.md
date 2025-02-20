@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: İlk Katkınızın Hikayesi
 date: 2024-08-11
 summary: İlk açık kaynak katkınızı yapmak sandığınızdan çok daha kolay olacak!
